@@ -17,6 +17,19 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+
+    extraPackages = with pkgs; [
+      gcc
+      gnumake
+      tree-sitter
+      ripgrep
+      fd
+    ];
+  };
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/nvim";
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -34,6 +47,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.chromium
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
