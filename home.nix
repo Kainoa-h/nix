@@ -14,7 +14,7 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
-
+  nixpkgs.config.allowUnfree = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   programs.neovim = {
@@ -29,7 +29,10 @@
       fd
     ];
   };
+
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/nvim";
+  xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/hypr";
+
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
