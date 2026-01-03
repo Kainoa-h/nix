@@ -51,6 +51,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.chromium
+    pkgs.nodejs
+    pkgs.discord
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
