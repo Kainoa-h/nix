@@ -1,0 +1,13 @@
+alias dxu="docker context use"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
+alias dxl="docker context ls"
+alias dl="docker logs"
+alias dv="docker volume"
+alias di="docker image"
+alias dvl="docker volume ls"
+alias dil="docker image ls"
+alias dnuke='docker rm -f $(docker ps -q)'
+alias d='docker ps --format "table {{.Names}}\t{{.Status}}"'
+alias dd='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}"'
+alias da="docker ps -a"

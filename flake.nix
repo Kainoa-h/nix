@@ -8,6 +8,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    yazi-relative-motions = {
+      url = "github:dedukun/relative-motions.yazi";
+      flake = false;
+    };
+    yazi-starship = {
+      url = "github:Rolv-Apneseth/starship.yazi";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

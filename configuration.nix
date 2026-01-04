@@ -49,12 +49,14 @@
     variant = "";
   };
 
+  users.defaultUserShell = pkgs.zsh;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kai = {
     isNormalUser = true;
     description = "kai";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   home-manager = {
@@ -76,6 +78,8 @@
     dedicatedServer.openFirewall = true; # Opens ports for dedicated servers
     # localNetworkGameTransfers.openFirewall = true; # Optional: for faster downloads between PCs
   };
+  programs.zsh.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -131,6 +135,8 @@
    NIXOS_OZONE_WL = "1";
    WLR_RENDERER_ALLOW_SOFTWARE = "0";
   };
+
+  environment.shells = with pkgs; [ zsh ];
 
   hardware = {
     graphics.enable = true;
