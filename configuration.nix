@@ -71,6 +71,7 @@
   nixpkgs.overlays = [
     (final: prev: {qutebrowser = prev.qutebrowser.override { enableWideVine = true; }; })
     ];
+  nixpkgs.config.chromium.enableWideVine = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.steam = {
     enable = true;
@@ -97,7 +98,6 @@
     rofi
     qutebrowser
     yazi
-
   ];
 
   fonts.packages = with pkgs; [
@@ -114,6 +114,20 @@
     nerd-fonts.symbols-only
     nerd-fonts.caskaydia-cove
   ];
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      # The default font for most UI (menus, windows, firefox)
+      sansSerif = [ "Noto Sans" "Noto Sans CJK JP" ];
+      # The default font for "serif" text (often used in reading modes)
+      serif = [ "Noto Serif" "Noto Serif CJK JP" ];
+      # The default font for terminals and code editors
+      monospace = [ "JetBrainsMono Nerd Font" "Noto Sans Mono CJK JP" ];
+      # The default font for emojis
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
