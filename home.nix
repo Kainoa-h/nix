@@ -190,7 +190,7 @@
       
       cb = "wl-copy -selection clipboard";
 
-      nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin";
+      nrs = "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo";
     };
 
     # 3. Complex Functions & Custom Logic
