@@ -32,6 +32,7 @@
 
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/nvim";
   xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/hypr";
+  xdg.configFile."waybar".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/waybar";
   programs.yazi = {
     enable = true;
     plugins = {
