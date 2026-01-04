@@ -99,6 +99,8 @@
     pkgs.grim
     pkgs.slurp
     pkgs.gitleaks
+    pkgs.opencode
+    pkgs.claude-code
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
