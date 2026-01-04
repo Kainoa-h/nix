@@ -112,6 +112,7 @@
     proggyfonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
+    nerd-fonts.caskaydia-cove
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
