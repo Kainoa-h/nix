@@ -70,8 +70,8 @@
     pkgs.trash-cli
     pkgs.bat
     pkgs.fzf
-    pkgs.xclip
     pkgs.ghostty
+    pkgs.wl-clipboard
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -107,6 +107,11 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  services.cliphist = {
+    enable = true;
+    allowImages = true; # optional, but recommended
   };
 
   programs.ghostty = {
