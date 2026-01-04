@@ -95,7 +95,6 @@
     pkgs.dunst
     libnotify
     swww
-    rofi
     qutebrowser
     yazi
   ];

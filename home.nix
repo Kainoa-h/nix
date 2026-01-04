@@ -1,6 +1,10 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
+  imports = [
+    inputs.walker.homeManagerModules.default
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kai";
@@ -48,7 +52,17 @@
     "yazi/theme.toml".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/yazi/theme.toml";
   };
 
+  programs.walker = {
+    enable = true;
+    runAsService = false;
+  };
+
+  # systemd.user.services.elephant = {
+  #   Install.WantedBy = [ "graphical-session.target" ];
+  # };
+
   home.packages = [
+    inputs.elephant.packages.${pkgs.system}.default
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -81,6 +95,7 @@
     pkgs.tmux
     pkgs.spotify
     pkgs.btop
+    pkgs.gemini-cli-bin
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
