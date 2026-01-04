@@ -96,6 +96,9 @@
     pkgs.spotify
     pkgs.btop
     pkgs.gemini-cli-bin
+    pkgs.grim
+    pkgs.slurp
+    pkgs.gitleaks
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
