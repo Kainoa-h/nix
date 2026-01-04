@@ -72,6 +72,11 @@
     pkgs.fzf
     pkgs.ghostty
     pkgs.wl-clipboard
+    pkgs.libreoffice-fresh
+    pkgs.hunspell
+    pkgs.thunderbird
+    pkgs.telegram-desktop
+    pkgs.ncspot
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
