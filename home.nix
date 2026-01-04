@@ -173,11 +173,10 @@
       
       # Navigation
       config = "z $HOME/.config; v .; z -";
-      src = "source ~/.zshrc"; # Note: In Nix, you usually use 'home-manager switch' instead
       
-      # Linux Clipboard (Replaces pbcopy)
-      # Note: Requires 'xclip' package. For Wayland, change to 'wl-copy'.
-      cb = "xclip -selection clipboard";
+      cb = "wl-copy -selection clipboard";
+
+      nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin";
     };
 
     # 3. Complex Functions & Custom Logic
