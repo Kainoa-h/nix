@@ -77,6 +77,9 @@
     pkgs.thunderbird
     pkgs.telegram-desktop
     pkgs.ncspot
+    pkgs.tmux
+    pkgs.spotify
+    pkgs.btop
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
