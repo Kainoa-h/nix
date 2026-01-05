@@ -13,7 +13,9 @@
   "modules-right": [
     "group/tray-expander",
     "pulseaudio",
-    "cpu"
+    "cpu",
+    "memory",
+    "tray"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -58,7 +60,10 @@
   },
   "cpu": {
     "interval": 5,
-    "format": "󰍛"
+    "format": "󰍛 {usage}%"
+  },
+  "memory": {
+    "format": " {}%"
   },
   "clock": {
     "format": "{:L%A %H:%M}",
@@ -66,7 +71,7 @@
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "{icon}",
+    "format": "{icon}   {volume}%",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
     "format-muted": "",
