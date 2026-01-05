@@ -81,6 +81,14 @@
   };
   programs.zsh.enable = true;
   services.gvfs.enable = true;
+
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "both";
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [ config.services.tailscale.port ];
+    trustedInterfaces = [ "tailscale0" ];
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -97,6 +105,7 @@
     swww
     qutebrowser
     yazi
+    tailscale
   ];
 
   fonts.packages = with pkgs; [
