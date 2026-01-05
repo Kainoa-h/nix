@@ -168,6 +168,8 @@
     jack.enable = true;
   };
 
+  services.udisks2.enable = true;
+
 
   # List services that you want to enable:
 
