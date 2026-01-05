@@ -102,6 +102,7 @@
     pkgs.opencode
     pkgs.claude-code
     pkgs.udiskie
+    pkgs.nautilus
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -80,7 +80,7 @@
     # localNetworkGameTransfers.openFirewall = true; # Optional: for faster downloads between PCs
   };
   programs.zsh.enable = true;
-
+  services.gvfs.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
