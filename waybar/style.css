@@ -1,0 +1,65 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "CaskaydiaCove Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0, 43, 54, 0.95); /* Solarized Dark Base03 */
+    color: #839496; /* Solarized Base0 */
+    border-bottom: 2px solid #073642; /* Solarized Base02 */
+}
+
+#workspaces {
+    margin: 2px 5px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #839496;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    margin: 0 4px; /* Spacing between workspaces */
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-color: #93a1a1;
+}
+
+#workspaces button.active {
+    background-color: #268bd2; /* Solarized Blue */
+    color: #fdf6e3; /* Solarized Base3 */
+    border: 1px solid #2aa198; /* Solarized Cyan border */
+    min-width: 40px;
+}
+
+#workspaces button.urgent {
+    background-color: #cb4b16; /* Solarized Orange */
+    color: #fdf6e3;
+}
+
+/* Other modules styling to match */
+#clock,
+#cpu,
+#memory,
+#pulseaudio,
+#tray,
+#custom-expand-icon {
+    padding: 0 10px;
+    margin: 0 4px;
+    background-color: #073642; /* Solarized Base02 */
+    color: #93a1a1; /* Solarized Base1 */
+    border-radius: 6px;
+}
+
+#clock {
+    background-color: #002b36;
+    font-weight: bold;
+}

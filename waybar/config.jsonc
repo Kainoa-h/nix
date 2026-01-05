@@ -19,7 +19,22 @@
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
-    "format": "{icon}",
+    "format": "{icon} {windows}",
+    "window-rewrite": {
+      "class<chromium>": "",
+      "class<discord>": "",
+      "class<thunderbird>": "",
+      "class<org.telegram.desktop>": "",
+      "class<Spotify>": "",
+      "class<kitty>": "",
+      "class<ghostty>": "",
+      "class<libreoffice-writer>": "",
+      "class<libreoffice-calc>": "",
+      "class<libreoffice-impress>": "",
+      "class<libreoffice-draw>": "",
+      "class<libreoffice-math>": ""
+    },
+    "window-rewrite-default": "",
     "format-icons": {
       "default": "",
       "1": "1",
@@ -53,8 +68,7 @@
       "W": "W",
       "X": "X",
       "Y": "Y",
-      "Z": "Z",
-      "active": "󱓻"
+      "Z": "Z"
     },
     "persistent-workspaces": {}
   },
