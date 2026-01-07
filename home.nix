@@ -103,6 +103,7 @@
     pkgs.claude-code
     pkgs.udiskie
     pkgs.nautilus
+    pkgs.bun
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -140,6 +141,12 @@
     EDITOR = "nvim";
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   services.cliphist = {
     enable = true;
     allowImages = true; # optional, but recommended
@@ -151,9 +158,9 @@
     enableZshIntegration = true; 
 
     settings = {
-      background = "002b36";
+      background = "000000";
       foreground = "ffffff";
-      background-opacity = 0.97;
+      background-opacity = 1;
 
       font-family = "CaskaydiaCove Nerd Font";
       font-size = 15;

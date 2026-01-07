@@ -82,6 +82,13 @@
   programs.zsh.enable = true;
   services.gvfs.enable = true;
 
+  virtualisation.podman = {
+    enable = true;
+    # Create a 'docker' alias for podman
+    dockerCompat = true;
+    # Enable podman socket (for docker-compose compatibility)
+    dockerSocket.enable = true;
+  };
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "both";
   networking.firewall = {
@@ -98,13 +105,15 @@
     zoxide
     git
     lazygit
-    pkgs.kitty
-    pkgs.waybar
-    pkgs.dunst
+    kitty
+    waybar
+    dunst
     libnotify
     qutebrowser
     yazi
     tailscale
+    zip
+    podman-compose
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 
