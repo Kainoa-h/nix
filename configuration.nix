@@ -102,10 +102,10 @@
     pkgs.waybar
     pkgs.dunst
     libnotify
-    swww
     qutebrowser
     yazi
     tailscale
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 
   fonts.packages = with pkgs; [

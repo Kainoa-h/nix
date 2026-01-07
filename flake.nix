@@ -23,6 +23,8 @@
       url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
     };
+
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
