@@ -7,22 +7,20 @@
 }
 
 window#waybar {
-    background: rgba(0, 43, 54, 0.95); /* Solarized Dark Base03 */
+    background: rgba(0, 0, 0, 0);
     color: #839496; /* Solarized Base0 */
-    border-bottom: 2px solid #073642; /* Solarized Base02 */
 }
 
 #workspaces {
-    margin: 2px 5px;
+    margin: 7px 5px 0px 5px;
 }
 
 #workspaces button {
     padding: 0 8px;
-    background-color: transparent;
+    background-color: #073642;
     color: #839496;
     border: 1px solid transparent;
     border-radius: 6px;
-    margin: 0 4px; /* Spacing between workspaces */
     transition: all 0.3s ease;
 }
 
@@ -37,7 +35,7 @@ window#waybar {
     background-color: #268bd2; /* Solarized Blue */
     color: #fdf6e3; /* Solarized Base3 */
     border: 1px solid #2aa198; /* Solarized Cyan border */
-    min-width: 40px;
+    min-width: 10px;
 }
 
 #workspaces button.urgent {
@@ -53,7 +51,7 @@ window#waybar {
 #tray,
 #custom-expand-icon {
     padding: 0 10px;
-    margin: 0 4px;
+    margin: 7px 5px 0px 5px;
     background-color: #073642; /* Solarized Base02 */
     color: #93a1a1; /* Solarized Base1 */
     border-radius: 6px;

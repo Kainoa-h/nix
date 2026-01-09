@@ -103,7 +103,6 @@
     pkgs.claude-code
     pkgs.udiskie
     pkgs.nautilus
-    pkgs.bun
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -158,9 +157,9 @@
     enableZshIntegration = true; 
 
     settings = {
-      background = "000000";
+      background = "002b36";
       foreground = "ffffff";
-      background-opacity = 1;
+      background-opacity = 0.8;
 
       font-family = "CaskaydiaCove Nerd Font";
       font-size = 15;
