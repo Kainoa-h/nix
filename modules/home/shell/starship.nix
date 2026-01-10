@@ -1,0 +1,202 @@
+{ config, lib, pkgs, ... }:
+
+{
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      "$schema" = "https://starship.rs/config-schema.json";
+
+      format = lib.concatStrings [
+          "[](color_orange)"
+          "$directory"
+          "[](fg:color_orange bg:color_aqua)"
+          "$git_branch"
+          "$git_status"
+          "[](fg:color_aqua bg:color_blue)"
+          "$c"
+          "$cpp"
+          "$rust"
+          "$golang"
+          "$nodejs"
+          "$php"
+          "$java"
+          "$kotlin"
+          "$haskell"
+          "$python"
+          "[](fg:color_blue bg:color_bg3)"
+          "$docker_context"
+          "$conda"
+          "$pixi"
+          "[](fg:color_bg3 bg:color_bg1)"
+          "$time"
+          "$cmd_duration"
+          "[ ](fg:color_bg1)"
+          "\${custom.git_email}"
+          "$line_break"
+          "$character"
+        ];
+
+      palette = "gruvbox_dark";
+
+      palettes.gruvbox_dark = {
+        color_fg0 = "#fbf1c7";
+        color_bg1 = "#3c3836";
+        color_bg3 = "#665c54";
+        color_blue = "#458588";
+        color_aqua = "#689d6a";
+        color_green = "#98971a";
+        color_orange = "#d65d0e";
+        color_purple = "#b16286";
+        color_red = "#cc241d";
+        color_yellow = "#d79921";
+      };
+
+      os.disabled = true;
+
+      username.show_always = false;
+
+      directory = {
+        style = "fg:color_fg0 bg:color_orange";
+        format = "[ $path ]($style)";
+        truncation_length = 3;
+        truncation_symbol = "…/";
+        substitutions = {
+          "Documents" = "󰈙 ";
+          "Downloads" = " ";
+          "Music" = "󰝚 ";
+          "Pictures" = " ";
+          "code" = "󰲋 ";
+        };
+      };
+
+      git_branch = {
+        symbol = "";
+        style = "bg:color_aqua";
+        format = "[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)";
+      };
+
+      git_status = {
+        style = "bg:color_aqua";
+        format = "[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)";
+      };
+
+      # --- Languages ---
+
+      nodejs = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      c = {
+        symbol = " ";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      cpp = {
+        symbol = " ";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      rust = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      golang = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      php = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      java = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      kotlin = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      haskell = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      python = {
+        symbol = "";
+        style = "bg:color_blue";
+        format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+      };
+
+      # --- Environments ---
+
+      docker_context = {
+        symbol = "";
+        style = "bg:color_bg3";
+        format = "[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)";
+        disabled = false;
+        only_with_files = true;
+        detect_files = [ "docker-compose.yml" "docker-compose.yaml" "Dockerfile" "compose.yaml" ];
+      };
+
+      conda = {
+        style = "bg:color_bg3";
+        format = "[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)";
+      };
+
+      pixi = {
+        style = "bg:color_bg3";
+        format = "[[ $symbol( $version)( $environment) ](fg:color_fg0 bg:color_bg3)]($style)";
+      };
+
+      # --- System & Time ---
+
+      time = {
+        disabled = false;
+        time_format = "%R";
+        style = "bg:color_bg1";
+        format = "[[  $time ](fg:color_fg0 bg:color_bg1)]($style)";
+      };
+
+      cmd_duration = {
+        min_time = 2000;
+        style = "bg:color_bg1";
+        format = "[[ 󰔛 $duration ](fg:color_fg0 bg:color_bg1)]($style)";
+      };
+
+      "custom.git_email" = {
+        command = "git config user.email";
+        when = "git rev-parse --git-dir 2> /dev/null";
+        format = "as [$output]($style) ";
+        style = "bright-yellow bold";
+      };
+
+      line_break.disabled = false;
+
+      character = {
+        disabled = false;
+        success_symbol = "[](bold fg:color_green)";
+        error_symbol = "[](bold fg:color_red)";
+        vimcmd_symbol = "[](bold fg:color_green)";
+        vimcmd_replace_one_symbol = "[](bold fg:color_purple)";
+        vimcmd_replace_symbol = "[](bold fg:color_purple)";
+        vimcmd_visual_symbol = "[](bold fg:color_yellow)";
+      };
+    };
+  };
+}
