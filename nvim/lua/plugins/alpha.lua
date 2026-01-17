@@ -1,6 +1,17 @@
 return {
   {
     "goolord/alpha-nvim",
+    init = function()
+      -- Show alpha when opening with a directory (nvim .)
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          local arg = vim.fn.argv(0)
+          if vim.fn.argc() == 1 and vim.fn.isdirectory(arg) == 1 then
+            require("alpha").start()
+          end
+        end,
+      })
+    end,
     opts = function(_, dashboard)
       local logos = {
       [[
@@ -221,6 +232,7 @@ return {
         dashboard.button("n", " " .. " New file",        [[<cmd> ene <BAR> startinsert <cr>]]),
         dashboard.button("r", " " .. " Recent files",    [[<cmd> lua LazyVim.pick("oldfiles")() <cr>]]),
         dashboard.button("g", " " .. " Find text",       [[<cmd> lua LazyVim.pick("live_grep")() <cr>]]),
+        dashboard.button("q", " " .. " Quit",            "<cmd> qa <cr>"),
       }
       for _, button in ipairs(dashboard.section.buttons.val) do
         button.opts.hl = "AlphaButtons"
