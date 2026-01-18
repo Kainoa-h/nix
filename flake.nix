@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     yazi-relative-motions = {
       url = "github:dedukun/relative-motions.yazi";
       flake = false;
@@ -27,7 +32,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {
     nixosConfigurations = {
       # Main desktop
       nix-muffin = nixpkgs.lib.nixosSystem {
@@ -40,6 +45,18 @@
       #   specialArgs = { inherit inputs; };
       #   modules = [ ./hosts/my-laptop ];
       # };
+    };
+
+    darwinConfigurations = {
+      # MacBook
+      macbook = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/macbook
+          inputs.home-manager.darwinModules.default
+        ];
+      };
     };
   };
 }

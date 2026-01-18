@@ -7,10 +7,12 @@
     fzf
     trash-cli
     btop
+    gitleaks
+  ] ++ lib.optionals pkgs.stdenv.isLinux [
+    # Linux/Wayland-specific tools
     wl-clipboard
     grim
     slurp
-    gitleaks
   ];
 
   # Eza (modern ls replacement)

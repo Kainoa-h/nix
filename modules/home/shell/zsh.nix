@@ -30,9 +30,15 @@
       # Navigation
       config = "z $HOME/.config; v .; z -";
 
-      cb = "wl-copy -selection clipboard";
+      # Platform-specific clipboard
+      cb = if pkgs.stdenv.isLinux
+           then "wl-copy -selection clipboard"
+           else "pbcopy";
 
-      nrs = "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo";
+      # Platform-specific rebuild
+      nrs = if pkgs.stdenv.isLinux
+            then "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo"
+            else "darwin-rebuild switch --flake $HOME/nixos-config#macbook";
     };
 
     # Complex Functions & Custom Logic
