@@ -30,13 +30,23 @@
       # Navigation
       config = "z $HOME/.config; v .; z -";
 
-      cb = "wl-copy -selection clipboard";
+      # Platform-specific clipboard
+      cb = if pkgs.stdenv.isLinux
+           then "wl-copy -selection clipboard"
+           else "pbcopy";
 
-      nrs = "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo";
+      # Platform-specific rebuild
+      nrs = if pkgs.stdenv.isLinux
+            then "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo"
+            else "sudo darwin-rebuild switch --flake .#macbook";
     };
 
     # Complex Functions & Custom Logic
     initContent = ''
+      ${lib.optionalString pkgs.stdenv.isDarwin ''
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      ''}
+
       # Load external alias files
       ${builtins.readFile ../../../zsh/git_alias.zsh}
       ${builtins.readFile ../../../zsh/tmux_alias.zsh}
