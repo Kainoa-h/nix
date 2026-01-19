@@ -8,6 +8,7 @@
     ../../modules/home/desktop/file-managers.nix
     ../../modules/home/desktop/terminal.nix
     ../../modules/home/desktop/sketchybar.nix
+    ../../modules/home/desktop/communication.nix
   ];
 
   # User settings

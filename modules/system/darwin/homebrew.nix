@@ -25,6 +25,9 @@
       "sf-symbols"
       "font-caskaydia-cove-nerd-font"
       "chromium"
+      "pearcleaner"
+      "betterdisplay"
+      "unnaturalscrollwheels"
     ];
 
     # CLI tools not in nixpkgs or better via brew
