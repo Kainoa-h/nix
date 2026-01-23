@@ -21,11 +21,7 @@
     hunspell
 
     # Development and AI tools
-    gemini-cli-bin
-    opencode
-    claude-code
-
-    # Terminal emulator (alternate)
-    kitty
+    # gemini-cli-bin
+    # claude-code
   ];
 }
