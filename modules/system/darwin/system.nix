@@ -2,6 +2,8 @@
 
 {
   # System-wide settings for macOS
+  system.primaryUser = "kai";
+
   system.defaults = {
     # Dock settings
     dock = {
@@ -25,6 +27,7 @@
       KeyRepeat = 2;
       InitialKeyRepeat = 15;
       "com.apple.mouse.tapBehavior" = 1;  # Tap to click
+      _HIHideMenuBar = true;
     };
   };
 
@@ -35,4 +38,9 @@
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  launchd.user.envVariables = {
+      LUA_CPATH = "${pkgs.sbarlua}/lib/lua/5.4/?.so;;";
+      LUA_PATH = "${pkgs.sbarlua}/share/lua/5.4/?.lua;;";
+  };
 }

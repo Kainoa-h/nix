@@ -38,11 +38,15 @@
       # Platform-specific rebuild
       nrs = if pkgs.stdenv.isLinux
             then "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo"
-            else "darwin-rebuild switch --flake $HOME/nixos-config#macbook";
+            else "sudo darwin-rebuild switch --flake .#macbook";
     };
 
     # Complex Functions & Custom Logic
     initContent = ''
+      ${lib.optionalString pkgs.stdenv.isDarwin ''
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      ''}
+
       # Load external alias files
       ${builtins.readFile ../../../zsh/git_alias.zsh}
       ${builtins.readFile ../../../zsh/tmux_alias.zsh}

@@ -14,11 +14,20 @@
 
     # Homebrew taps
     taps = [
-      "homebrew/cask"
-      "homebrew/cask-fonts"
     ];
 
     casks = [
+      "ghostty"
+      "nikitabobko/tap/aerospace"
+      "raycast"
+      "font-sf-pro"
+      "font-hack-nerd-font"
+      "sf-symbols"
+      "font-caskaydia-cove-nerd-font"
+      "chromium"
+      "pearcleaner"
+      "betterdisplay"
+      "unnaturalscrollwheels"
     ];
 
     # CLI tools not in nixpkgs or better via brew

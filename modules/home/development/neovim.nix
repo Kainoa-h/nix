@@ -13,10 +13,11 @@
       ripgrep
       fd
     ];
+    withNodeJs = true;
   };
 
   # Symlink to external nvim configuration
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/nvim";
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
 
   # Session variable
   home.sessionVariables = {

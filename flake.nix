@@ -14,6 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ghostty = {
+        url = "github:ghostty-org/ghostty";
+      };
+
     yazi-relative-motions = {
       url = "github:dedukun/relative-motions.yazi";
       flake = false;
