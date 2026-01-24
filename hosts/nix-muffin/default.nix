@@ -45,7 +45,6 @@
     git
     lazygit
     kitty
-    qutebrowser
     yazi
     zip
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
