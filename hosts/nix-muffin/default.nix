@@ -59,6 +59,22 @@
     };
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ "kai" ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/systemctl suspend";
+          options = [ "NOPASSWD" ];
+        }
+        {
+          command = "/run/current-system/sw/bin/systemctl hibernate";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   # NixOS state version
   system.stateVersion = "25.11";
 }
