@@ -74,6 +74,9 @@
     }
   ];
 
+  # some stuff so Mason can download stuff
+  programs.nix-ld.enable = true;
+
   # NixOS state version
   system.stateVersion = "25.11";
 }
