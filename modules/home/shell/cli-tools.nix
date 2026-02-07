@@ -13,6 +13,9 @@
     wl-clipboard
     grim
     slurp
+    unzip
+    gzip
+    curl
   ];
 
   # Eza (modern ls replacement)
