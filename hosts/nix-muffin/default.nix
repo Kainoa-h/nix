@@ -74,6 +74,12 @@
     }
   ];
 
+  virtualisation.podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+  };
+
   # some stuff so Mason can download stuff
   programs.nix-ld.enable = true;
 
