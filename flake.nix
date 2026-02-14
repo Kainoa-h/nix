@@ -34,6 +34,11 @@
     };
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {

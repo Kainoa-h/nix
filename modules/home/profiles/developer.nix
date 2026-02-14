@@ -7,5 +7,6 @@
     ../development/neovim.nix
     ../development/git.nix
     ../development/languages.nix
+    ../development/llm-tools.nix
   ];
 }
