@@ -28,11 +28,14 @@
       "pearcleaner"
       "betterdisplay"
       "unnaturalscrollwheels"
+      "karabiner-elements"
+      "tailscale-app"
     ];
 
     # CLI tools not in nixpkgs or better via brew
     brews = [
       # Add specific brews if needed
+      "kanata"
     ];
 
     # Mac App Store apps (requires mas-cli)

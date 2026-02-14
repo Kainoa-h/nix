@@ -45,6 +45,7 @@
     initContent = ''
       ${lib.optionalString pkgs.stdenv.isDarwin ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
+        alias kan="sudo kanata --port 1012 --cfg ~/nixos-config/kanata/kanata_mod.kbd > /dev/null"
       ''}
 
       # Load external alias files
