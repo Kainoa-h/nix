@@ -1,0 +1,232 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc)
+
+(defalias
+  chw (chord escape w)
+  che (chord escape e)
+  chl (chord backspace l)
+  ch; (chord backspace ;)
+  chj (chord enter j)
+  chk (chord enter k)
+)
+
+(deftemplate charmod (char mod)
+  (tap-hold-release 200 200 $char $mod)
+)
+
+(deftemplate charmod_slow (char mod)
+  (tap-hold 200 200 $char $mod)
+)
+
+(deftemplate charmod_no_repeat_tap (char mod)
+  (tap-hold-release 0 150 $char $mod)
+)
+
+(deflayermap (main)
+  w @chw
+  e @che
+  ; @ch;
+  x (t! charmod x lctl)
+  c (t! charmod c lalt)
+  v (t! charmod v lmet)
+  j @chj
+  k @chk
+  l @chl
+  m (t! charmod m rmet)
+  , (t! charmod , ralt)
+  . (t! charmod . rctl)
+  lmet (t! charmod (one-shot 1000 (layer-while-held fnc)) (layer-while-held aux))
+  rmet (t! charmod (one-shot 1000 (layer-while-held symb^)) (layer-while-held symb))
+  spc (t! charmod_no_repeat_tap spc lsft)
+
+  esc XX
+  tab XX
+  caps XX
+  del XX
+  bspc XX
+  ret XX
+  lsft XX
+  rsft XX
+  lctl XX
+  rctl XX
+  grv XX
+  1 XX
+  2 XX
+  3 XX
+  4 XX
+  5 XX
+  6 XX
+  7 XX
+  8 XX
+  9 XX
+  0 XX
+  - XX
+  = XX
+  f1 XX
+  f2 XX
+  f3 XX
+  f4 XX
+  f5 XX
+  f6 XX
+  f7 XX
+  f8 XX
+  f9 XX
+  f10 XX
+  f11 XX
+  f12 XX
+  [ XX
+  ] XX
+  ' XX
+  \ XX
+)
+
+(deflayermap (aux)
+  a tab
+  q brdn
+  w brup
+  e mute
+  r vold
+  t volu
+  g pgup
+  b pgdn
+  h left
+  j down
+  k up
+  l right
+
+  m S-1
+  , S-2
+  . S-3
+  u S-7
+  i S-8
+  ; '
+  / -
+
+  rmet ret
+  spc (t! charmod ret lsft)
+)
+
+(deflayermap (symb)
+  a tab
+  w '
+  e [
+  r ]
+  d S-[
+  f S-]
+  c (t! charmod S-9 lalt)
+  v (t! charmod S-0 lmet)
+  x `
+  
+  t S-\
+  y \
+  h =
+  n S--
+  m 1
+  , 2
+  . 3
+  j 4
+  k 5
+  l 6
+  u 7
+  i 8
+  o 9
+  ; 0
+  p +
+  / -
+
+  lmet bspc
+  spc (t! charmod bspc lsft)
+)
+
+(deflayermap (symb^)
+  a tab
+  w S-'
+  e [
+  r ]
+  d S-[
+  f S-]
+  c S-9
+  v S-0
+  x S-`
+  
+  t S-\
+  y \
+  h =
+  n S--
+  m S-1
+  , S-2
+  . S-3
+  j S-4
+  k S-5
+  l S-6
+  u S-7
+  i S-8
+  o S-9
+  ; '
+  p +
+  / -
+
+  lmet A-bspc
+  spc (t! charmod A-bspc lsft)
+)
+
+(deflayermap (fnc)
+  a tab
+  x f1
+  c f2
+  v f3
+  s f4
+  d f5
+  f f6
+  w f7
+  e f8
+  r f9
+  t f10
+  g f11
+  b f12
+
+  y \
+  h =
+  n S--
+  m S-1
+  , S-2
+  . S-3
+  j S-4
+  k S-5
+  l S-6
+  u S-7
+  i S-8
+  o S-9
+  ; '
+  p +
+  / -
+
+  lmet (layer-switch normal)
+  rmet S-ret
+  spc (t! charmod S-ret lsft)
+)
+
+(deflayermap (normal)
+  rmet (t! charmod (layer-switch main) rmet)
+)
+
+(defchords escape 30
+  (w  ) w
+  (  e) e
+  (w e) esc
+)
+
+(defchords backspace 200
+  (l  ) l
+  (  ;) ;
+  (l ;) A-bspc
+)
+
+(defchords enter 30
+  (j  ) j
+  (  k) k
+  (j k) ret
+)
