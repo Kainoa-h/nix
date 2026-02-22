@@ -28,6 +28,7 @@
     ../../modules/system/services/ssh.nix
     ../../modules/system/services/virtualization.nix
     ../../modules/system/services/storage.nix
+    ../../modules/system/services/secrets.nix
 
     # Home Manager integration
     inputs.home-manager.nixosModules.default
