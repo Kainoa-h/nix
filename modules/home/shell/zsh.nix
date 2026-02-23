@@ -53,6 +53,11 @@
       ${builtins.readFile ../../../zsh/tmux_alias.zsh}
       ${builtins.readFile ../../../zsh/docker_alias.zsh}
 
+      ${lib.optionalString pkgs.stdenv.isLinux ''
+        export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
+        export DOCKER_sock=/run/user/$UID/podman/podman.sock
+      ''}
+
       # --- Functions ---
 
       expand-all-aliases-n-functions() {
