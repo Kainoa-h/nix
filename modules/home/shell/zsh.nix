@@ -56,6 +56,10 @@
       ${lib.optionalString pkgs.stdenv.isLinux ''
         export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
         export DOCKER_sock=/run/user/$UID/podman/podman.sock
+
+        alias opr='export OPENROUTER_API_KEY=$(pass llm/openrouter); export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"'
+        export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
+        export ANTHROPIC_API_KEY="" # Important: Must be explicitly empty
       ''}
 
       # --- Functions ---
