@@ -23,5 +23,6 @@
   # System packages for networking
   environment.systemPackages = with pkgs; [
     tailscale
+    lsof
   ];
 }
