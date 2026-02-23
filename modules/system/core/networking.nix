@@ -5,6 +5,10 @@
   networking.networkmanager.enable = true;
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
+  networking.hosts = {
+      "127.0.0.1" = [ "localhost" "site.local"];
+  };
+
   # Tailscale VPN
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "both";
