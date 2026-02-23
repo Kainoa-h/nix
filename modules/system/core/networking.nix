@@ -3,6 +3,7 @@
 {
   # Network Manager
   networking.networkmanager.enable = true;
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   # Tailscale VPN
   services.tailscale.enable = true;
