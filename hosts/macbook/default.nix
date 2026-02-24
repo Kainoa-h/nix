@@ -7,6 +7,7 @@
     ../../modules/system/darwin/users.nix
     ../../modules/system/darwin/system.nix
     ../../modules/system/darwin/homebrew.nix
+    ../../modules/system/darwin/virtualization.nix
   ];
 
   # Hostname
