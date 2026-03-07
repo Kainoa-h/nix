@@ -8,5 +8,6 @@
     ../development/git.nix
     ../development/languages.nix
     ../development/llm-tools.nix
+    ../development/notes.nix
   ];
 }
