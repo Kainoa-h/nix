@@ -6,5 +6,6 @@
     spotify
     ncspot
     zathura
+    pinta
   ];
 }
