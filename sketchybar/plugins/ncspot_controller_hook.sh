@@ -8,13 +8,13 @@ source "$HOME/.config/sketchybar/plugins/colors.sh"
 # - NCSPOT_ALBUM - Album name
 
 if [ "$NCSPOT_STATE" = "stopped" ] && [ -z "$NCSPOT_TITLE" ]; then
-  sketchybar --set ncspot drawing=off
+  /etc/profiles/per-user/kai/bin/sketchybar --set ncspot drawing=off
   exit 0
 fi
 
 if [ "$NCSPOT_STATE" = "paused" ] || [ "$NCSPOT_STATE" = "finished" ]; then
-  sketchybar --set ncspot drawing=on icon.color="$TEXT_GREY" label="$NCSPOT_TITLE"
+  /etc/profiles/per-user/kai/bin/sketchybar --set ncspot drawing=on icon.color="$TEXT_GREY" label="$NCSPOT_TITLE"
   exit 0
 fi
 
-sketchybar --set ncspot drawing=on label="$NCSPOT_TITLE" icon.color="$TEXT_SPOTIFY_GREEN"
+/etc/profiles/per-user/kai/bin/sketchybar --set ncspot drawing=on label="$NCSPOT_TITLE" icon.color="$TEXT_SPOTIFY_GREEN"

@@ -1,0 +1,3 @@
+hook_script = "~/.config/sketchybar/plugins/ncspot_controller_hook.sh"
+download_cover = true
+ncspot_binary = "/etc/profiles/per-user/kai/bin/ncspot"

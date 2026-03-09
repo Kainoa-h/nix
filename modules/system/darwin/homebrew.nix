@@ -36,6 +36,8 @@
     brews = [
       # Add specific brews if needed
       "kanata"
+      "kainoa-h/homebrew-tap/ncspot-controller"
+      "kainoa-h/homebrew-tap/kanata-layer-observer"
     ];
 
     # Mac App Store apps (requires mas-cli)

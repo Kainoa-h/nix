@@ -48,4 +48,12 @@
   home.file.".local/share/sketchybar_lua/sketchybar.so" = lib.mkIf pkgs.stdenv.isDarwin {
       source = "${pkgs.sbarlua}/lib/lua/5.4/sketchybar.so";
   };
+
+  xdg.configFile."kanata-observer" = lib.mkIf pkgs.stdenv.isDarwin {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/kanata-observer";
+  };
+
+  xdg.configFile."ncspot-controller" = lib.mkIf pkgs.stdenv.isDarwin {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/ncspot-controller";
+  };
 }

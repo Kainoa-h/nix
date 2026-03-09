@@ -9,6 +9,7 @@
     ../../modules/home/desktop/terminal.nix
     ../../modules/home/desktop/sketchybar.nix
     ../../modules/home/desktop/communication.nix
+    ../../modules/home/desktop/media.nix
   ];
 
   # User settings
