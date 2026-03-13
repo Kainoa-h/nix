@@ -8,14 +8,16 @@
     trash-cli
     btop
     gitleaks
+    file
+    ripgrep
+    unzip
+    gzip
+    curl
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     # Linux/Wayland-specific tools
     wl-clipboard
     grim
     slurp
-    unzip
-    gzip
-    curl
   ];
 
   # Eza (modern ls replacement)
