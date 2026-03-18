@@ -30,6 +30,7 @@
       "unnaturalscrollwheels"
       "karabiner-elements"
       "tailscale-app"
+      "zed"
     ];
 
     # CLI tools not in nixpkgs or better via brew
