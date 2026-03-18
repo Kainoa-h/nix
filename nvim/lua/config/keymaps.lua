@@ -48,10 +48,8 @@ vim.keymap.set("n", "<leader>b/", function()
 end, { desc = "Fuzzy find in current buffer" })
 
 -- Code Companion
-vim.keymap.del("n", "ga")
-vim.keymap.del("v", "ga")
 vim.keymap.set("n", "ga", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
