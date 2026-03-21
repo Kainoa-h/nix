@@ -49,6 +49,9 @@
     yazi
     zip
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    ddcui
+    ddcutil
+    brightnessctl
   ];
 
   # Home Manager configuration
@@ -58,6 +61,8 @@
       "kai" = import ./home.nix;
     };
   };
+
+  users.users.kai.extraGroups = [ "i2c" ];
 
   security.sudo.extraRules = [
     {
@@ -74,6 +79,16 @@
       ];
     }
   ];
+
+  systemd.services.ddcci-setup = {
+    description = "Create ddcci device for external monitor";
+    after = [ "display-manager.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 3 && echo ddcci 0x37 > /sys/bus/i2c/devices/i2c-6/new_device'";
+    };
+  };
 
   virtualisation.podman = {
       enable = true;
