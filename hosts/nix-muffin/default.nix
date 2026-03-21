@@ -81,12 +81,29 @@
   ];
 
   systemd.services.ddcci-setup = {
-    description = "Create ddcci device for external monitor";
+    description = "Auto-detect and register ddcci devices for external monitors";
     after = [ "display-manager.service" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 3 && echo ddcci 0x37 > /sys/bus/i2c/devices/i2c-6/new_device'";
+      ExecStart = "${pkgs.writeShellScript "ddcci-auto-detect" ''
+        sleep 3
+
+        ${pkgs.ddcutil}/bin/ddcutil detect 2>/dev/null | \
+        ${pkgs.gnused}/bin/sed -n 's/I2C bus:\s*\/dev\/\(i2c-[0-9]*\)/\1/p' | \
+        while read -r i2c_dev; do
+          i2c_num=''${i2c_dev#i2c-}
+          
+          if [ -d "/sys/bus/i2c/devices/$i2c_dev/$i2c_dev-0037" ]; then
+            echo "ddcci already registered on /dev/$i2c_dev"
+            continue
+          fi
+          
+          echo "Registering ddcci on /dev/$i2c_dev"
+          echo "ddcci 0x37" > "/sys/bus/i2c/devices/$i2c_dev/new_device" 2>/dev/null || true
+          sleep 1
+        done
+      ''}";
     };
   };
 
