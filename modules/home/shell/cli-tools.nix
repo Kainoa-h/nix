@@ -6,7 +6,7 @@
     bat
     fzf
     trash-cli
-    btop
+    btop-rocm
     gitleaks
     file
     ripgrep
