@@ -19,7 +19,8 @@ vim.keymap.set("n", "<leader>fa", function()
     cwd = require("lazyvim.util").root.get(), -- this ensures it uses the project root
   })
 end, { desc = "Grep from project root" })
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Fuzzy find in buffer" })
+vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<CR>", { desc = "Fuzzy find" })
+vim.keymap.set("n", "g/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Fuzzy find in buffer" })
 
 require("no-neck-pain")
 vim.keymap.set("n", "<leader>bg", ":NoNeckPain<CR>")
