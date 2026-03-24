@@ -13,6 +13,7 @@ vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+vim.keymap.set("t", "<c-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 vim.keymap.set("n", "<leader>fa", function()
   require("telescope.builtin").live_grep({
