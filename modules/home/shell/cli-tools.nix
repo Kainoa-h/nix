@@ -6,7 +6,6 @@
     bat
     fzf
     trash-cli
-    btop-rocm
     gitleaks
     file
     ripgrep
@@ -14,10 +13,14 @@
     gzip
     curl
   ] ++ lib.optionals pkgs.stdenv.isLinux [
-    # Linux/Wayland-specific tools
+    # linux/wayland-specific tools
     wl-clipboard
     grim
     slurp
+    btop-rocm
+  ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    # macos stuff
+    btop
   ];
 
   # Eza (modern ls replacement)
