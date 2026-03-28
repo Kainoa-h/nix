@@ -4,6 +4,7 @@
   # Network Manager
   networking.networkmanager.enable = true;
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
+  networking.enableIPv6 = false;
 
   networking.hosts = {
       "127.0.0.1" = [ "localhost" "site.local"];
