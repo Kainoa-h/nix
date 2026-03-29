@@ -40,7 +40,7 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   launchd.user.envVariables = {
-      LUA_CPATH = "${pkgs.sbarlua}/lib/lua/5.4/?.so;;";
-      LUA_PATH = "${pkgs.sbarlua}/share/lua/5.4/?.lua;;";
+      LUA_CPATH = "${pkgs.sbarlua}/lib/lua/5.5/?.so;;";
+      LUA_PATH = "${pkgs.sbarlua}/share/lua/5.5/?.lua;;";
   };
 }

@@ -30,14 +30,14 @@
     package = pkgs.sketchybar;
     extraPackages = [ 
     pkgs.jq
-    pkgs.lua5_4
+    pkgs.lua5_5
     ];
   };
 
 
   home.sessionVariables = lib.mkIf pkgs.stdenv.isDarwin {
-      LUA_CPATH = "${pkgs.sbarlua}/lib/lua/5.4/?.so;;";
-      LUA_PATH = "${pkgs.sbarlua}/share/lua/5.4/?.lua;;";
+      LUA_CPATH = "${pkgs.sbarlua}/lib/lua/5.5/?.so;;";
+      LUA_PATH = "${pkgs.sbarlua}/share/lua/5.5/?.lua;;";
   };
 
   # Symlink entire SketchyBar config directory
@@ -46,7 +46,7 @@
   };
 
   home.file.".local/share/sketchybar_lua/sketchybar.so" = lib.mkIf pkgs.stdenv.isDarwin {
-      source = "${pkgs.sbarlua}/lib/lua/5.4/sketchybar.so";
+      source = "${pkgs.sbarlua}/lib/lua/5.5/sketchybar.so";
   };
 
   xdg.configFile."kanata-observer" = lib.mkIf pkgs.stdenv.isDarwin {
