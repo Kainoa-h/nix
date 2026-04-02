@@ -12,6 +12,7 @@
     unzip
     gzip
     curl
+    jq
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     # linux/wayland-specific tools
     wl-clipboard
