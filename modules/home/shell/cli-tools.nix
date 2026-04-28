@@ -13,6 +13,7 @@
     gzip
     curl
     jq
+    rsync
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     # linux/wayland-specific tools
     wl-clipboard
