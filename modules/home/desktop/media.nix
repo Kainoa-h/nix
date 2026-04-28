@@ -8,5 +8,6 @@
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     # linux/wayland-specific tools
     pinta
+    vlc
   ];
 }
