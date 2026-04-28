@@ -24,4 +24,7 @@
     dunst
     libnotify
   ];
+
+  # Screen Recorder
+  programs.gpu-screen-recorder.enable = true;
 }
