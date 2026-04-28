@@ -3,8 +3,15 @@
 {
   # Network Manager
   networking.networkmanager.enable = true;
+  networking.networkmanager.connectionConfig = {
+    "ethernet.wake-on-lan" = 64;
+  };
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
   networking.enableIPv6 = false;
+  networking.interfaces.enp9s0.wakeOnLan.enable = true;
+
+  boot.extraModulePackages = [ config.boot.kernelPackages.r8125 ];
+  boot.blacklistedKernelModules = [ "r8169" ];
 
   networking.hosts = {
       "127.0.0.1" = [ "localhost" "site.local"];
@@ -17,7 +24,7 @@
   # Firewall configuration
   networking.firewall = {
     enable = true;
-    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedUDPPorts = [ config.services.tailscale.port 9 ];
     trustedInterfaces = [ "tailscale0" ];
   };
 
