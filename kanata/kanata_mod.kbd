@@ -118,7 +118,7 @@
   f S-]
   c (t! charmod S-9 lalt)
   v (t! charmod S-0 lmet)
-  x `
+  z `
   
   t S-\
   y \
@@ -150,7 +150,7 @@
   f S-]
   c S-9
   v S-0
-  x S-`
+  z S-`
   
   t S-\
   y \
