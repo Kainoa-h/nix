@@ -27,4 +27,4 @@ case "$1" in
   ;;
 esac
 
-sketchybar --set kan label="$1" icon.color="$TEXT_WHITE" label.color="$TEXT_WHITE" background.color="$bg"
+/etc/profiles/per-user/kai/bin/sketchybar --set kan label="$1" icon.color="$TEXT_WHITE" label.color="$TEXT_WHITE" background.color="$bg"
