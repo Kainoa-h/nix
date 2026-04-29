@@ -2,215 +2,115 @@
   process-unmapped-keys yes
 )
 
-(defsrc)
-
-(defalias
-  chw (chord escape w)
-  che (chord escape e)
-  chl (chord backspace l)
-  ch; (chord backspace ;)
-  chj (chord enter j)
-  chk (chord enter k)
-)
-
 (deftemplate charmod (char mod)
   (tap-hold-release 200 200 $char $mod)
 )
-
 (deftemplate charmod_slow (char mod)
   (tap-hold 200 200 $char $mod)
 )
-
 (deftemplate charmod_no_repeat_tap (char mod)
   (tap-hold-release 0 150 $char $mod)
 )
 
-(deflayermap (main)
-  w @chw
-  e @che
-  ; @ch;
-  x (t! charmod x lctl)
-  c (t! charmod c lalt)
-  v (t! charmod v lmet)
-  j @chj
-  k @chk
-  l @chl
-  m (t! charmod m rmet)
-  , (t! charmod , ralt)
-  . (t! charmod . rctl)
-  lmet (t! charmod (one-shot 1000 (layer-while-held fnc)) (layer-while-held aux))
-  rmet (t! charmod (one-shot 1000 (layer-while-held symb^)) (layer-while-held symb))
-  spc (t! charmod_no_repeat_tap spc lsft)
+(defalias
+  chw   (chord escape w)
+  che   (chord escape e)
+  chl   (chord backspace l)
+  ch;   (chord backspace ;)
+  chj   (chord enter j)
+  chk   (chord enter k)
 
-  esc XX
-  tab XX
-  caps XX
-  del XX
-  bspc XX
-  ret XX
-  lsft XX
-  rsft XX
-  lctl XX
-  rctl XX
-  grv XX
-  1 XX
-  2 XX
-  3 XX
-  4 XX
-  5 XX
-  6 XX
-  7 XX
-  8 XX
-  9 XX
-  0 XX
-  - XX
-  = XX
-  f1 XX
-  f2 XX
-  f3 XX
-  f4 XX
-  f5 XX
-  f6 XX
-  f7 XX
-  f8 XX
-  f9 XX
-  f10 XX
-  f11 XX
-  f12 XX
-  [ XX
-  ] XX
-  ' XX
-  \ XX
+  ;; main layer hold-taps (Keeping original names for logical output)
+  xctl  (t! charmod x lctl)
+  calt  (t! charmod c lalt)
+  vmet  (t! charmod v lmet)
+  mrmet (t! charmod m rmet)
+  cralt (t! charmod , ralt)
+  drctl (t! charmod . rctl)
+  lmkey (t! charmod (one-shot 1000 (layer-while-held fnc)) (layer-while-held aux))
+  rmkey (t! charmod (one-shot 1000 (layer-while-held symb^)) (layer-while-held symb))
+  mspc  (t! charmod_no_repeat_tap spc lsft)
+
+  ;; aux layer
+  aspc  (t! charmod ret lsft)
+
+  ;; symb layer
+  ss9   (t! charmod S-9 lalt)
+  ss0   (t! charmod S-0 lmet)
+  sbspc (t! charmod bspc lsft)
+
+  ;; symb^ layer
+  s^bsp (t! charmod A-bspc lsft)
+
+  ;; fnc layer
+  fsspc (t! charmod S-ret lsft)
+  lswnm (layer-switch normal)
+
+  ;; normal layer
+  nrmet (t! charmod (layer-switch main) rmet)
 )
 
-(deflayermap (aux)
-  a tab
-  q brdn
-  w brup
-  e mute
-  r vold
-  t volu
-  g pgup
-  b pgdn
-  h left
-  j down
-  k up
-  l right
-
-  m S-1
-  , S-2
-  . S-3
-  u S-7
-  i S-8
-  ; '
-  / -
-
-  rmet ret
-  spc (t! charmod ret lsft)
+(defsrc
+  esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab   q     w     e     r     t     y     u     i     o     p     [     ]     \
+  caps  a     s     d     f     g     h     j     k     l     ;     '     ret
+  lsft  z     x     c     v     b     n     m     ,     .     /     rsft
+  lctl  lalt  lmet                    spc               rmet  ralt
 )
 
-(deflayermap (symb)
-  a tab
-  w '
-  e [
-  r ]
-  d S-[
-  f S-]
-  c (t! charmod S-9 lalt)
-  v (t! charmod S-0 lmet)
-  z `
-  
-  t S-\
-  y \
-  h =
-  n S--
-  m 1
-  , 2
-  . 3
-  j 4
-  k 5
-  l 6
-  u 7
-  i 8
-  o 9
-  ; 0
-  p +
-  / -
-
-  lmet bspc
-  spc (t! charmod bspc lsft)
+(deflayer main
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  q     @chw  @che  r     t     XX    XX    y     u     i     o     p     XX    XX
+  a     s     d     f     g     XX    XX    h     @chj  @chk  @chl  @ch;  XX
+  z     @xctl @calt @vmet b     XX    XX    n     @mrmet @cralt @drctl /
+  _     _     @lmkey                  @mspc             @rmkey _
 )
 
-(deflayermap (symb^)
-  a tab
-  w S-'
-  e [
-  r ]
-  d S-[
-  f S-]
-  c S-9
-  v S-0
-  z S-`
-  
-  t S-\
-  y \
-  h =
-  n S--
-  m S-1
-  , S-2
-  . S-3
-  j S-4
-  k S-5
-  l S-6
-  u S-7
-  i S-8
-  o S-9
-  ; '
-  p +
-  / -
-
-  lmet A-bspc
-  spc (t! charmod A-bspc lsft)
+(deflayer aux
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  brdn  brup  mute  vold  volu  _     _     _     S-7   S-8   _     _     _     _
+  tab   _     _     _     pgup  _     _     left  down  up    right '     _
+  _     _     _     _     pgdn  _     _     _     S-1   S-2   S-3   -
+  _     _     _                       @aspc             ret   _
 )
 
-(deflayermap (fnc)
-  a tab
-  x f1
-  c f2
-  v f3
-  s f4
-  d f5
-  f f6
-  w f7
-  e f8
-  r f9
-  t f10
-  g f11
-  b f12
-
-  y \
-  h =
-  n S--
-  m S-1
-  , S-2
-  . S-3
-  j S-4
-  k S-5
-  l S-6
-  u S-7
-  i S-8
-  o S-9
-  ; '
-  p +
-  / -
-
-  lmet (layer-switch normal)
-  rmet S-ret
-  spc (t! charmod S-ret lsft)
+(deflayer symb
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     '     [     ]     S-\   _     _     \     7     8     9     +     _     _
+  tab   _     S-[   S-]   _     _     _     =     4     5     6     0     _
+  _     `     @ss9  @ss0  _     _     _     S--   1     2     3     -
+  _     _     bspc                    @sbspc            _     _
 )
 
-(deflayermap (normal)
-  rmet (t! charmod (layer-switch main) rmet)
+(deflayer symb^
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     S-'   [     ]     S-\   _     _     \     S-7   S-8   S-9   +     _     _
+  tab   _     S-[   S-]   _     _     _     =     S-4   S-5   S-6   '     _
+  _     S-`   S-9   S-0   _     _     _     S--   S-1   S-2   S-3   -
+  _     _     A-bspc                  @s^bsp            _     _
+)
+
+(deflayer fnc
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     f7    f8    f9    f10   _     _     \     S-7   S-8   S-9   +     _     _
+  tab   f4    f5    f6    f11   _     _     =     S-4   S-5   S-6   '     _
+  _     f1    f2    f3    f12   _     _     S--   S-1   S-2   S-3   -
+  _     _     @lswnm                  @fsspc            S-ret _
+)
+
+(deflayer normal
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _                       _                 @nrmet _
 )
 
 (defchords escape 30
@@ -218,13 +118,11 @@
   (  e) e
   (w e) esc
 )
-
 (defchords backspace 200
   (l  ) l
   (  ;) ;
   (l ;) A-bspc
 )
-
 (defchords enter 30
   (j  ) j
   (  k) k
