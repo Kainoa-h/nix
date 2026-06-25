@@ -20,6 +20,9 @@
     libreoffice-fresh
     hunspell
 
+    bluez
+    bluetui
+
     # Development and AI tools
     # gemini-cli-bin
     # claude-code
