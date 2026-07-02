@@ -1,25 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
-  # Neovim editor configuration
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
+  home.packages = [
+    inputs.nvim-config.packages.${pkgs.system}.default
+  ];
 
-    extraPackages = with pkgs; [
-      gcc
-      gnumake
-      tree-sitter
-      ripgrep
-      fd
-    ];
-    withNodeJs = true;
-  };
-
-  # Symlink to external nvim configuration
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/nvim";
-
-  # Session variable
   home.sessionVariables = {
     EDITOR = "nvim";
   };

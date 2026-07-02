@@ -40,7 +40,6 @@
   # System packages that haven't been modularized
   environment.systemPackages = with pkgs; [
     vim
-    neovim
     wget
     zoxide
     git
