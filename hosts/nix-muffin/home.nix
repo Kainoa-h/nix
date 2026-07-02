@@ -10,7 +10,7 @@
   # Home Manager basic settings
   home.username = "kai";
   home.homeDirectory = "/home/kai";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   # cursor
   home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
