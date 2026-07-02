@@ -23,6 +23,7 @@
     waybar
     dunst
     libnotify
+    gpu-screen-recorder-gtk # GUI app for screen recorder
   ];
 
   # Screen Recorder
