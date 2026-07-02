@@ -12,6 +12,9 @@
   home.homeDirectory = "/home/kai";
   home.stateVersion = "25.11";
 
+  # cursor
+  home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
