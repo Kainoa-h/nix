@@ -24,7 +24,7 @@
       mouse-hide-while-typing = true;
 
       keybind = [
-        "global:ctrl+p=toggle_quick_terminal"
+        "super+backquote=toggle_quick_terminal"
         "super+s>super+s=text::w\\n"              # Double backslash for \n
         "all:alt+cmd+down=scroll_page_lines:25"
         "all:alt+cmd+up=scroll_page_lines:-25"
@@ -53,6 +53,13 @@
       keybind = all:alt+cmd+down=scroll_page_lines:25
       keybind = all:alt+cmd+up=scroll_page_lines:-25
       keybind = shift+enter=text:\x1b\r
+    '';
+  };
+
+  xdg.configFile."presenterm/config.yaml" = {
+    text = ''
+      mermaid:
+        scale: 8
     '';
   };
 
