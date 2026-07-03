@@ -17,6 +17,11 @@
       set -g status-justify "absolute-centre"
       set -g set-clipboard on
 
+      set-window-option -g mode-keys vi
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
       # Split panes using | and -
       bind | split-window -h
       bind - split-window -v
