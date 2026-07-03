@@ -8,5 +8,6 @@
     ../shell/tmux.nix
     ../shell/cli-tools.nix
     ../shell/direnv.nix
+    ../shell/sesh.nix
   ];
 }

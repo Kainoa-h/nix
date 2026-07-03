@@ -115,9 +115,29 @@
         fi
       }
 
+      function sesh-sessions() {
+        {
+          exec </dev/tty
+          exec <&1
+          local session
+          session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+          zle reset-prompt > /dev/null 2>&1 || true
+          [[ -z "$session" ]] && return
+          sesh connect $session
+        }
+      }
+
+
       # --- Bindings ---
       zle -N expand-all-aliases-n-functions
       bindkey '^@' expand-all-aliases-n-functions  # Ctrl-Space
+
+      # Disable terminal freeze (XOFF) so Ctrl-s can be used
+      stty -ixon
+      zle -N sesh-sessions
+      bindkey -M emacs '^s' sesh-sessions
+      bindkey -M vicmd '^s' sesh-sessions
+      bindkey -M viins '^s' sesh-sessions
 
       # --- Completion Styling ---
       zstyle ':completion:*' menu select

@@ -41,5 +41,8 @@
   };
 
   # FZF fuzzy finder
-  programs.fzf.enable = true;
+  programs.fzf = {
+    enable = true;
+    tmux.enableShellIntegration = true;
+  };
 }
