@@ -3,5 +3,7 @@
 {
   programs.sesh = {
     enable = true;
+    enableTmuxIntegration = false;
+    enableAlias = false;
   };
 }

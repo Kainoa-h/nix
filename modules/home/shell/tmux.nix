@@ -23,7 +23,8 @@
       unbind '"'
       unbind %
 
-      bind-key "T" run-shell "sesh connect \"$(
+      unbind s
+      bind-key "s" run-shell "sesh connect \"$(
         sesh list --icons | fzf-tmux -p 80%,70% \
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
           --header '  ^a ^t ^g ^x ^d kill ^f find' \
