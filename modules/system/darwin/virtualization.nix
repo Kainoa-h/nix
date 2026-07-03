@@ -6,13 +6,13 @@
   # You will need to initialize and start it manually after installation:
   # $ podman machine init
   # $ podman machine start
-  environment.systemPackages = with pkgs; [
-    podman
-    podman-compose
-    k3d
-    kubectl
-    k9s
-    # qemu is required for podman machine on macOS
-    qemu
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   podman
+  #   podman-compose
+  #   k3d
+  #   kubectl
+  #   k9s
+  #   # qemu is required for podman machine on macOS
+  #   qemu
+  # ];
 }

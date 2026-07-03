@@ -4,9 +4,9 @@
   # Media applications
   home.packages = with pkgs; [
     ncspot
-    zathura
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     # linux/wayland-specific tools
+    zathura
     pinta
     vlc
   ];
