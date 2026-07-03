@@ -6,30 +6,22 @@
 
     # Basic Settings
     mouse = true;
-    prefix = "C-a";
-    terminal = "screen-256color";
+    prefix = "C-b";
+    terminal = "tmux-256color";
     baseIndex = 1;
 
     # Key Bindings & Plugin Settings
     extraConfig = ''
-      # Unbind default prefix
-      unbind C-b
-      bind-key C-a send-prefix
+      set -g allow-passthrough on
+      set -g status-position top
+      set -g status-justify "absolute-centre"
+      set -g set-clipboard on
 
       # Split panes using | and -
       bind | split-window -h
       bind - split-window -v
       unbind '"'
       unbind %
-
-      # Dracula theme configuration
-      set -g @dracula-show-left-icon "#S"
-      set -g @dracula-show-powerline true
-      set -g @dracula-plugins "git tmux-ram-usage"
-      set -g @dracula-git-disable-status false
-
-      # Continuum auto-restore
-      set -g @continuum-restore 'on'
     '';
 
     # Plugins - ORDER MATTERS! (dracula must be last)
@@ -37,8 +29,47 @@
       sensible
       vim-tmux-navigator
       resurrect
-      continuum
-      dracula  # MUST be last for theme to load properly
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+        '';
+      }
+      {
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavor "mocha"
+          set -g @catppuccin_window_status_style "none"
+          set -g @catppuccin_status_background "none"
+
+          set -g status-left-length 100
+          set -g status-left "#{E:@catppuccin_status_session}"
+
+          set -g status-right-length 100
+          # set -g status-right "#{E:@catppuccin_status_application}"
+          set -g status-right "#{E:@catppuccin_status_directory}"
+          set -ag status-right "#{E:@catppuccin_status_uptime}"
+          set -agF status-right "#{E:@catppuccin_status_battery}"
+
+          set -g @catppuccin_status_connect_separator "no"
+          set -g @catppuccin_status_fill "icon"
+          set -g @catppuccin_status_right_separator " "
+
+          set -g @catppuccin_directory_icon " "
+          set -g @catppuccin_session_icon " "
+
+          set -wg automatic-rename on
+          set -g automatic-rename-format "Window"
+          set -g window-status-format " #I#{?#{!=:#{window_name},Window},: #W,} "
+          set -g window-status-style "bg=default,fg=#{@thm_sapphire},bold"
+          set -g window-status-last-style "bg=default,fg=#{@thm_blue},bold"
+          set -g window-status-activity-style "bg=#{@thm_red},fg=#{@thm_bg}"
+          set -g window-status-bell-style "bg=#{@thm_red},fg=#{@thm_bg},bold"
+          set -gF window-status-separator "#[bg=default,fg=#{@thm_overlay_0},bold]│"
+          set -g window-status-current-format " #I#{?#{!=:#{window_name},Window},: #W,} "
+          set -g window-status-current-style "bg=#{@thm_sky},fg=#{@thm_bg},bold"
+        '';
+      }
     ];
   };
 }
