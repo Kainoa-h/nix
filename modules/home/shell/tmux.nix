@@ -66,7 +66,6 @@
           # set -g status-right "#{E:@catppuccin_status_application}"
           set -g status-right "#{E:@catppuccin_status_directory}"
           set -ag status-right "#{E:@catppuccin_status_uptime}"
-          set -agF status-right "#{E:@catppuccin_status_battery}"
 
           set -g @catppuccin_status_connect_separator "no"
           set -g @catppuccin_status_fill "icon"
