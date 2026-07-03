@@ -32,7 +32,6 @@
           "$time"
           "$cmd_duration"
           "[ ](fg:color_bg1)"
-          "\${custom.git_email}"
           "$line_break"
           "$character"
         ];
@@ -179,12 +178,6 @@
         format = "[[ 󰔛 $duration ](fg:color_fg0 bg:color_bg1)]($style)";
       };
 
-      "custom.git_email" = {
-        command = "git config user.email";
-        when = "git rev-parse --git-dir 2> /dev/null";
-        format = "as [$output]($style) ";
-        style = "bright-yellow bold";
-      };
 
       line_break.disabled = false;
 
