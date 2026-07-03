@@ -28,6 +28,7 @@
     users = {
       "kai" = import ./home.nix;
     };
+    backupFileExtension = "backup";
   };
 
   # nix-darwin state version
