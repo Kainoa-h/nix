@@ -15,10 +15,7 @@
   # User settings
   home.username = "kai";
   home.homeDirectory = "/Users/kai";
-  home.stateVersion = "25.11";
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  home.stateVersion = "26.05";
 
   # Let Home Manager manage itself
   programs.home-manager.enable = true;

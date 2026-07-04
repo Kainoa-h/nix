@@ -20,7 +20,6 @@
       ll = "eza -laBhHF";
       lg = "eza -laBhHF --git-repos --git --no-permissions";
       v = "nvim";
-      y = "yazi";
       h = "z ~";
       cd = "z";
 
