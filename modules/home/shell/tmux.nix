@@ -45,6 +45,7 @@
       )\""
 
       bind-key "W" run-shell "sesh window \"$(sesh window | fzf-tmux -p 60%,50% --prompt '🪟  ')\""
+      bind g split-window -h -b -d "tail -f /dev/null" \; resize-pane -x 150
     '';
 
     # Plugins - ORDER MATTERS! (dracula must be last)
