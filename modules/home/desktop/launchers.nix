@@ -9,6 +9,6 @@
 
   # Elephant launcher package
   home.packages = [
-    inputs.elephant.packages.${pkgs.system}.default
+    inputs.elephant.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

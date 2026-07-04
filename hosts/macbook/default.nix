@@ -31,6 +31,8 @@
     backupFileExtension = "backup";
   };
 
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
   # nix-darwin state version
   system.stateVersion = 5;
 }
