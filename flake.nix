@@ -44,14 +44,26 @@
       url = "github:kainoa-h/nvim-nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+   nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
   };
 
-  outputs = { self, nixpkgs, nix-darwin, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-darwin, nixos-wsl, ... }@inputs: {
     nixosConfigurations = {
       # Main desktop
       nix-muffin = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ ./hosts/nix-muffin ];
+      };
+
+      wsl-host = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./hosts/wsl-host
+        ];
       };
 
       # Example: Future laptop configuration
