@@ -5,6 +5,7 @@
   imports = [
     ../../modules/home/profiles/developer.nix
     ../../modules/home/profiles/base.nix
+    ../../modules/home/desktop/file-managers.nix
   ];
 
   # Home Manager basic settings
