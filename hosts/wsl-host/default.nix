@@ -5,6 +5,7 @@
   imports = [
     # Pull in the Home Manager module from your flake inputs
     inputs.home-manager.nixosModules.default
+    ../../modules/system/services/docker.nix
   ];
 
   wsl.enable = true;
