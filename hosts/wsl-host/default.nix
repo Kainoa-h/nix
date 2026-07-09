@@ -6,6 +6,7 @@
     # Pull in the Home Manager module from your flake inputs
     inputs.home-manager.nixosModules.default
     ../../modules/system/services/docker.nix
+    ../../modules/system/core/nix.nix
   ];
 
   wsl.enable = true;
@@ -31,7 +32,8 @@
     };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  time.timeZone = "Asia/Singapore";
+
   programs.nix-ld.enable = true;
   system.stateVersion = "26.05"; 
 }
