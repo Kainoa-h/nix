@@ -35,10 +35,7 @@
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
 
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     nvim-config = {
       url = "github:kainoa-h/nvim-nix-wrapper-modules";
