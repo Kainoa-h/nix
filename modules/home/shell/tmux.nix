@@ -16,6 +16,7 @@
       set -g status-position top
       set -g status-justify "absolute-centre"
       set -g set-clipboard on
+      bind-key x kill-pane
 
       set-window-option -g mode-keys vi
       bind-key -T copy-mode-vi v send-keys -X begin-selection
