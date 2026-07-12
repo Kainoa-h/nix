@@ -9,5 +9,6 @@
     ../development/zed.nix
     ../development/llm-tools.nix
     ../development/notes.nix
+    ../development/dbeaver.nix
   ];
 }
