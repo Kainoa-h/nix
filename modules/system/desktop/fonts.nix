@@ -15,6 +15,7 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
     nerd-fonts.caskaydia-cove
+    corefonts
   ];
 
   # Font configuration
