@@ -20,8 +20,12 @@
     libreoffice-fresh
     hunspell
 
+    # Bluetooth stuff
     bluez
     bluetui
+
+    # PulseAudio controls
+    pamix
 
     # Development and AI tools
     # gemini-cli-bin
