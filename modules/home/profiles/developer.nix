@@ -6,6 +6,7 @@
     ./base.nix
     ../development/neovim.nix
     ../development/git.nix
+    ../development/gh.nix
     ../development/zed.nix
     ../development/llm-tools.nix
     ../development/notes.nix
