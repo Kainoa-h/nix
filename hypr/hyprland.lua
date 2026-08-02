@@ -298,13 +298,11 @@ hl.config({
 
 local mainMod = "ALT"
 
--- Sets "Windows" key as main modifier
-
 hl.bind("SUPER" .. " + " .. "V", hl.dsp.exec_cmd("walker --provider clipboard"))
 
-hl.bind("SUPER + ALT + SHIFT" .. " + " .. "S", hl.dsp.exec_cmd("grim-| wl-copy"))
+hl.bind("SUPER + ALT + SHIFT" .. " + " .. "S", hl.dsp.exec_cmd("grim - | wl-copy"))
 
-hl.bind("SUPER + SHIFT" .. " + " .. "S", hl.dsp.exec_cmd("grim -g $(slurp -d)-| wl-copy"))
+hl.bind("SUPER + SHIFT" .. " + " .. "S", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
 
