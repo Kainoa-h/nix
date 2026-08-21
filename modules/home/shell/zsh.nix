@@ -38,6 +38,12 @@
       nrs = if pkgs.stdenv.isLinux
             then "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo"
             else "sudo darwin-rebuild switch --flake .#macbook";
+    }
+    // lib.optionalAttrs pkgs.stdenv.isLinux {
+      nvim-dev = "cd /home/kai/nixos-config && NVIM_DEV_CONFIG=/home/kai/nixos-config/packages/neovim nix run --impure .#nvim";
+    }
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      nvim-dev = "cd /Users/kai/nixos-config && NVIM_DEV_CONFIG=/Users/kai/nixos-config/packages/neovim nix run --impure .#nvim";
     };
 
     # Complex Functions & Custom Logic

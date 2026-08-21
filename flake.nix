@@ -37,16 +37,59 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    nvim-config = {
-      url = "github:kainoa-h/nvim-nix-wrapper-modules";
+    wrappers = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    plugins-lze = {
+      url = "github:BirdeeHub/lze";
+      flake = false;
+    };
+
+    plugins-lzextras = {
+      url = "github:BirdeeHub/lzextras";
+      flake = false;
+    };
+
+    plugins-vague-nvim = {
+      url = "github:vague-theme/vague.nvim";
+      flake = false;
     };
 
    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
   };
 
-  outputs = { self, nixpkgs, nix-darwin, nixos-wsl, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-darwin, nixos-wsl, wrappers, ... }@inputs:
+  let
+    supportedSystems = [
+      "x86_64-linux"
+      "aarch64-darwin"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    neovimModule = nixpkgs.lib.modules.importApply ./packages/neovim/module.nix inputs;
+    neovimWrapper = wrappers.lib.evalModule neovimModule;
+  in {
+    packages = forAllSystems (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.permittedInsecurePackages = [
+            "pnpm-10.34.0"
+          ];
+        };
+      in {
+        nvim = neovimWrapper.config.wrap { inherit pkgs; };
+      });
+
+    apps = forAllSystems (system: {
+      nvim = {
+        type = "app";
+        program = "${self.packages.${system}.nvim}/bin/nvim";
+      };
+    });
+
     nixosConfigurations = {
       # Main desktop
       nix-muffin = nixpkgs.lib.nixosSystem {

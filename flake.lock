@@ -376,30 +376,6 @@
         "type": "github"
       }
     },
-    "nvim-config": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "plugins-lze": "plugins-lze",
-        "plugins-lzextras": "plugins-lzextras",
-        "plugins-vague-nvim": "plugins-vague-nvim",
-        "wrappers": "wrappers"
-      },
-      "locked": {
-        "lastModified": 1787309937,
-        "narHash": "sha256-wxWfakMybY3JzAdObPma0Ds+EPbpGLZlFHmmjlYDSp8=",
-        "owner": "kainoa-h",
-        "repo": "nvim-nix-wrapper-modules",
-        "rev": "4f859c6c6734835cee0494c13837fbac60a8c75c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kainoa-h",
-        "repo": "nvim-nix-wrapper-modules",
-        "type": "github"
-      }
-    },
     "plugins-lze": {
       "flake": false,
       "locked": {
@@ -458,8 +434,11 @@
         "nix-darwin": "nix-darwin",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_6",
-        "nvim-config": "nvim-config",
+        "plugins-lze": "plugins-lze",
+        "plugins-lzextras": "plugins-lzextras",
+        "plugins-vague-nvim": "plugins-vague-nvim",
         "walker": "walker",
+        "wrappers": "wrappers",
         "yazi-relative-motions": "yazi-relative-motions",
         "yazi-starship": "yazi-starship"
       }
@@ -592,7 +571,6 @@
     "wrappers": {
       "inputs": {
         "nixpkgs": [
-          "nvim-config",
           "nixpkgs"
         ]
       },

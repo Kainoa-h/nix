@@ -1,8 +1,8 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = [
-    inputs.nvim-config.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
   ];
 
   home.sessionVariables = {
