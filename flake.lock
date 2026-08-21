@@ -387,11 +387,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1787221348,
-        "narHash": "sha256-kkLS8Z9EUqzZ6dEBDZ5Vr2cAHXpAdqgvHPGhIvr1jVA=",
+        "lastModified": 1787309937,
+        "narHash": "sha256-wxWfakMybY3JzAdObPma0Ds+EPbpGLZlFHmmjlYDSp8=",
         "owner": "kainoa-h",
         "repo": "nvim-nix-wrapper-modules",
-        "rev": "7cce80a8da4990b6be2827a6f55dc2b6f963e9a3",
+        "rev": "4f859c6c6734835cee0494c13837fbac60a8c75c",
         "type": "github"
       },
       "original": {
