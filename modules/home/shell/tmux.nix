@@ -13,6 +13,7 @@
     # Key Bindings & Plugin Settings
     extraConfig = ''
       set -g allow-passthrough on
+      set -g focus-events on
       set -g status-position top
       set -g status-justify "absolute-centre"
       set -g set-clipboard on

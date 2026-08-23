@@ -41,6 +41,7 @@ if not vim.g.started_by_firenvim then
 		{ import = "plugins.context_vt" },
 		{ import = "plugins.venv-selector" },
 		{ import = "plugins.codecompanion" },
+		{ import = "plugins.image" },
 		{
 			"yanky.nvim",
 			auto_enable = true,
