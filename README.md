@@ -31,6 +31,6 @@ nix run github:Kainoa-h/nix#nvim
 
 ### macbook
 - Window Manager: [Aerospace](https://github.com/nikitabobko/AeroSpace) + [SketchyBar](https://github.com/FelixKratz/SketchyBar)
-- Launcher: Raycast
+- Launcher: [Vorssaint](https://github.com/vorssaint/vorssaint-utils)
 
 ### wsl-host

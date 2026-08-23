@@ -19,7 +19,7 @@
     casks = [
       "ghostty"
       "nikitabobko/tap/aerospace"
-      "raycast"
+      "vorssaint/tap/vorssaint"
       "font-sf-pro"
       "font-hack-nerd-font"
       "sf-symbols"
@@ -27,7 +27,6 @@
       "chromium"
       "pearcleaner"
       "betterdisplay"
-      "unnaturalscrollwheels"
       "karabiner-elements"
       "tailscale-app"
       "zed"
