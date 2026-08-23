@@ -41,7 +41,7 @@
       background-opacity = 0.8
 
       font-family = CaskaydiaCove Nerd Font
-      font-size = 15
+      font-size = 18
       font-feature = +liga
 
       macos-titlebar-style = hidden
