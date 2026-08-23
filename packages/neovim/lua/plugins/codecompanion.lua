@@ -5,7 +5,7 @@ return {
 		event = "DeferredUIEnter",
 		keys = {
 			{
-				"<C-a>",
+				"<leader><C-a>",
 				"<cmd>CodeCompanionActions<cr>",
 				mode = { "n", "v" },
 				desc = "CC Actions",
