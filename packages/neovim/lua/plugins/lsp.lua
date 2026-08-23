@@ -251,4 +251,11 @@ return {
 			require("crates").setup()
 		end,
 	},
+	{
+		"harper_ls",
+		for_cat = "harper",
+		lsp = {
+			filetypes = { "markdown", "text" },
+		},
+	},
 }

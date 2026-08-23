@@ -203,6 +203,12 @@ inputs:
       marksman
     ];
   };
+  config.specs.harper = {
+    data = null;
+    runtimePkgs = with pkgs; [
+      harper
+    ];
+  };
  
 
   config.specs.general = {
