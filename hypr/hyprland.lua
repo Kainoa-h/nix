@@ -318,9 +318,9 @@ hl.bind(mainMod .. " + " .. "SUPER" .. " + " .. "V", hl.dsp.window.float())
 
 hl.bind(mainMod .. " + " .. "SPACE", hl.dsp.exec_cmd("walker"))
 
-hl.bind(mainMod .. "+ equal", hl.dsp.window.resize({x = 20, y = 20}))
+hl.bind(mainMod .. " + equal", hl.dsp.layout("splitratio 0.05"))
 
-hl.bind(mainMod .. "+ minus", hl.dsp.window.resize({x = -20, y = -20}))
+hl.bind(mainMod .. " + minus", hl.dsp.layout("splitratio -0.05"))
 
 -- bind = $mainMod SUPER, P, pseudo, # dwindle
 
