@@ -1,6 +1,6 @@
-# nix config
+# Nix Config
 
-My personal Nix flake, using Home Manager to manage a NixOS desktop, macOS laptop, and NixOS-WSL environment.
+My Nix flake, using Home Manager to manage a NixOS desktop, macOS laptop, and NixOS-WSL environment.
 
 | Host | Platform |
 | --- | --- |
@@ -22,3 +22,15 @@ The Neovim configuration is packaged independently with [nix-wrapper-modules](ht
 ```sh
 nix run github:Kainoa-h/nix#nvim
 ```
+
+## Hosts
+
+### nix-muffin
+- Window Manager: [Hyprland](https://github.com/hyprwm/hyprland) + [Waybar](https://github.com/alexays/waybar)
+- Launcher: [Elephant](https://github.com/abenz1267/elephant) + [Walker](https://github.com/abenz1267/walker)
+
+### macbook
+- Window Manager: [Aerospace](https://github.com/nikitabobko/AeroSpace) + [SketchyBar](https://github.com/FelixKratz/SketchyBar)
+- Launcher: Raycast
+
+### wsl-host
