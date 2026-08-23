@@ -26,11 +26,13 @@ nix run github:Kainoa-h/nix#nvim
 ## Hosts
 
 ### nix-muffin
+![](./images/desktop.jpg)
 - Window Manager: [Hyprland](https://github.com/hyprwm/hyprland) + [Waybar](https://github.com/alexays/waybar)
 - Launcher: [Elephant](https://github.com/abenz1267/elephant) + [Walker](https://github.com/abenz1267/walker)
+- Wallpaper: [DecomposedMaw](https://ko-fi.com/s/44c7d66479)
 
 ### macbook
+![](./images/macbook.png)
 - Window Manager: [Aerospace](https://github.com/nikitabobko/AeroSpace) + [SketchyBar](https://github.com/FelixKratz/SketchyBar)
 - Launcher: [Vorssaint](https://github.com/vorssaint/vorssaint-utils)
-
-### wsl-host
+- Wallpaper: [Catino](https://www.patreon.com/catinoworld/posts/catinoxp-124641128)
