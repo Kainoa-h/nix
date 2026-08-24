@@ -38,6 +38,22 @@
     /etc/nixos/cisco-cert.crt
   ];
 
+
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "both";
+
+  # Firewall configuration
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [ config.services.tailscale.port 9 ];
+    trustedInterfaces = [ "tailscale0" ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    tailscale
+    lsof
+  ];
+
   programs.nix-ld.enable = true;
   system.stateVersion = "26.05"; 
 }
