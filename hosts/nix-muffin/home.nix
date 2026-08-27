@@ -5,6 +5,7 @@
   imports = [
     inputs.walker.homeManagerModules.default
     ../../modules/home/profiles/full.nix
+    ../../modules/home/services/syncthing.nix
   ];
 
   # Home Manager basic settings
