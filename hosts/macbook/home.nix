@@ -10,6 +10,7 @@
     ../../modules/home/desktop/sketchybar.nix
     ../../modules/home/desktop/communication.nix
     ../../modules/home/desktop/media.nix
+    ../../modules/home/services/syncthing.nix
   ];
 
   # User settings
