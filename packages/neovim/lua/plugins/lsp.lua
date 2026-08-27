@@ -256,6 +256,11 @@ return {
 		for_cat = "harper",
 		lsp = {
 			filetypes = { "markdown", "text" },
+			settings = {
+				["harper-ls"] = {
+					dialect = "British",
+				},
+			},
 		},
 	},
 }
