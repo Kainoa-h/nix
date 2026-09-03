@@ -36,3 +36,13 @@ nix run github:Kainoa-h/nix#nvim
 - Window Manager: [Aerospace](https://github.com/nikitabobko/AeroSpace) + [SketchyBar](https://github.com/FelixKratz/SketchyBar)
 - Launcher: [Vorssaint](https://github.com/vorssaint/vorssaint-utils)
 - Wallpaper: [Catino](https://www.patreon.com/catinoworld/posts/catinoxp-124641128)
+
+## Custom Keymap with [Kanata](https://github.com/jtroo/kanata)
+![](./images/keymap-main.svg)
+
+
+Details in [blog post](https://www.kainoaho.com/blog/33-key-laptop-layout/)
+<details>
+    <summary>Exapnd for full keymap</summary>
+    ![](./images/keymap.svg)
+</details>
