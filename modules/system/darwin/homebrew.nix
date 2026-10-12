@@ -35,7 +35,6 @@
     # CLI tools not in nixpkgs or better via brew
     brews = [
       # Add specific brews if needed
-      "kanata"
       "kainoa-h/homebrew-tap/ncspot-controller"
       "kainoa-h/homebrew-tap/kanata-layer-observer"
     ];

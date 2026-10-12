@@ -6,6 +6,7 @@
     inputs.walker.homeManagerModules.default
     ../../modules/home/profiles/full.nix
     # ../../modules/home/services/syncthing.nix
+    ../../modules/home/services/kanata.nix
   ];
 
   # Home Manager basic settings

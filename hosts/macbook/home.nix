@@ -11,6 +11,7 @@
     ../../modules/home/desktop/communication.nix
     ../../modules/home/desktop/media.nix
     ../../modules/home/services/syncthing.nix
+    ../../modules/home/services/kanata.nix
   ];
 
   # User settings
