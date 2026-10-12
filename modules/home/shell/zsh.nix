@@ -49,6 +49,7 @@
     # Complex Functions & Custom Logic
     initContent = ''
       ${lib.optionalString pkgs.stdenv.isDarwin ''
+        ulimit -n 10240
         eval "$(/opt/homebrew/bin/brew shellenv)"
       ''}
 
