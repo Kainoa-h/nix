@@ -30,6 +30,7 @@
       "karabiner-elements"
       "tailscale-app"
       "zed"
+      "codex"
     ];
 
     # CLI tools not in nixpkgs or better via brew
@@ -37,6 +38,7 @@
       # Add specific brews if needed
       "kainoa-h/homebrew-tap/ncspot-controller"
       "kainoa-h/homebrew-tap/kanata-layer-observer"
+      "opencode"
     ];
 
     # Mac App Store apps (requires mas-cli)
