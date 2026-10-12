@@ -49,6 +49,8 @@ window#waybar {
 #cpu,
 #memory,
 #pulseaudio,
+#network,
+#battery,
 #tray,
 #custom-expand-icon {
     padding: 0 10px;

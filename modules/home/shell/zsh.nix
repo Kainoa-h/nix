@@ -36,7 +36,7 @@
 
       # Platform-specific rebuild
       nrs = if pkgs.stdenv.isLinux
-            then "nixos-rebuild switch --flake $HOME/nixos-config#nix-muffin --sudo"
+            then "nixos-rebuild switch --flake $HOME/nixos-config#$(hostname) --sudo"
             else "sudo darwin-rebuild switch --flake .#macbook";
     }
     // lib.optionalAttrs pkgs.stdenv.isLinux {

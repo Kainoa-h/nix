@@ -4,7 +4,7 @@
   # Import full profile (desktop user with all features)
   imports = [
     inputs.walker.homeManagerModules.default
-    ../../modules/home/profiles/full.nix
+    ../../modules/home/profiles/laptop-user.nix
     ../../modules/home/services/syncthing.nix
   ];
 

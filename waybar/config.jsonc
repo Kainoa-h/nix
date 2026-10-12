@@ -15,6 +15,8 @@
     "pulseaudio",
     "cpu",
     "memory",
+    "network",
+    "battery",
     "tray"
   ],
   "hyprland/workspaces": {
@@ -96,6 +98,29 @@
         ""
       ]
     }
+  },
+  "battery": {
+    "interval": 15,
+    "states": {
+      "warning": 30,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "interface": "wlp1s0",
+    "max-length": 24,
+    "align": 0.5,
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "   {ipaddr}/{cidr}",
+    "format-linked": " (No IP)",
+    "format-disconnected": "",
+    "format-disabled": "",
+    "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
+    "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}"
   },
   "group/tray-expander": {
     "orientation": "inherit",

@@ -106,6 +106,11 @@
         ];
       };
 
+      muffin-lite = nixpkgs.lib.nixosSystem {
+	specialArgs = { inherit inputs; };
+        modules = [ ./hosts/muffin-lite ];
+      };
+
       # Example: Future laptop configuration
       # my-laptop = nixpkgs.lib.nixosSystem {
       #   specialArgs = { inherit inputs; };

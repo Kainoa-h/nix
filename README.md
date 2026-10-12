@@ -7,6 +7,7 @@ My Nix flake, using Home Manager to manage a NixOS desktop, macOS laptop, and Ni
 | `nix-muffin` | NixOS desktop |
 | `macbook` | macOS with nix-darwin |
 | `wsl-host` | NixOS-WSL |
+| `muffin-lite` | LG-Gram |
 
 ## Structure
 

@@ -17,7 +17,7 @@
     udiskie
 
     # Office and productivity
-    libreoffice-fresh
+    # libreoffice-fresh
     hunspell
 
     # Bluetooth stuff
