@@ -1,12 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Clipboard history service
-  services.cliphist = {
-    enable = true;
-    allowImages = true;
-  };
-
   # Desktop utility packages
   home.packages = with pkgs; [
     # Screenshot and display tools
@@ -26,9 +20,5 @@
 
     # PulseAudio controls
     pamix
-
-    # Development and AI tools
-    # gemini-cli-bin
-    # claude-code
   ];
 }
