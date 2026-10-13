@@ -3,10 +3,10 @@
 {
   # Network Manager
   networking.networkmanager.enable = true;
-  networking.wireless.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
   hardware.enableRedistributableFirmware = true;
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
-    wifitui
+    impala
   ];
 }
