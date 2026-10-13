@@ -25,5 +25,7 @@
 
   xdg.enable = true;
 
+  desktop.ghostty.fontSize = 14;
+
   desktop.wallpaper.path = "/home/kai/wallpapers/_ (2).jpeg";
 }

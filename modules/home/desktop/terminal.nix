@@ -1,70 +1,78 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Ghostty terminal packages (Linux only - use Homebrew on macOS)
-  home.packages = lib.optionals pkgs.stdenv.isLinux (with pkgs; [
-    ghostty
-  ]);
+  options.desktop.ghostty.fontSize = lib.mkOption {
+    type = lib.types.number;
+    default = 18;
+    description = "Ghostty font size in points.";
+  };
 
-  # Ghostty terminal configuration (Linux only - Homebrew version on macOS doesn't use this)
-  programs.ghostty = lib.mkIf pkgs.stdenv.isLinux {
-    enable = true;
+  config = {
+    # Ghostty terminal packages (Linux only - use Homebrew on macOS)
+    home.packages = lib.optionals pkgs.stdenv.isLinux (with pkgs; [
+      ghostty
+    ]);
 
-    enableZshIntegration = true;
+    # Ghostty terminal configuration (Linux only - Homebrew version on macOS doesn't use this)
+    programs.ghostty = lib.mkIf pkgs.stdenv.isLinux {
+      enable = true;
 
-    settings = {
-      background = "002b36";
-      foreground = "ffffff";
-      background-opacity = 0.8;
+      enableZshIntegration = true;
 
-      font-family = "CaskaydiaCove Nerd Font";
-      font-size = 18;
-      font-feature = "+liga";
+      settings = {
+        background = "002b36";
+        foreground = "ffffff";
+        background-opacity = 0.8;
 
-      mouse-hide-while-typing = true;
+        font-family = "CaskaydiaCove Nerd Font";
+        font-size = config.desktop.ghostty.fontSize;
+        font-feature = "+liga";
 
-      keybind = [
-        "super+backquote=toggle_quick_terminal"
-        "super+s>super+s=text::w\\n"              # Double backslash for \n
-        "all:alt+cmd+down=scroll_page_lines:25"
-        "all:alt+cmd+up=scroll_page_lines:-25"
-        "shift+enter=text:\\x1b\\r"               # Double backslash for hex codes
-      ];
+        mouse-hide-while-typing = true;
+
+        keybind = [
+          "super+backquote=toggle_quick_terminal"
+          "super+s>super+s=text::w\\n"              # Double backslash for \n
+          "all:alt+cmd+down=scroll_page_lines:25"
+          "all:alt+cmd+up=scroll_page_lines:-25"
+          "shift+enter=text:\\x1b\\r"               # Double backslash for hex codes
+        ];
+      };
     };
-  };
 
-  # Ghostty config file for macOS (Homebrew version reads from XDG config)
-  xdg.configFile."ghostty/config" = lib.mkIf pkgs.stdenv.isDarwin {
-    text = ''
-      background = 002b36
-      foreground = ffffff
-      background-opacity = 0.8
+    # Ghostty config file for macOS (Homebrew version reads from XDG config)
+    xdg.configFile."ghostty/config" = lib.mkIf pkgs.stdenv.isDarwin {
+      text = ''
+        background = 002b36
+        foreground = ffffff
+        background-opacity = 0.8
 
-      font-family = CaskaydiaCove Nerd Font
-      font-size = 18
-      font-feature = +liga
+        font-family = CaskaydiaCove Nerd Font
+        font-size = ${toString config.desktop.ghostty.fontSize}
+        font-feature = +liga
 
-      macos-titlebar-style = hidden
+        macos-titlebar-style = hidden
 
-      mouse-hide-while-typing = true
+        mouse-hide-while-typing = true
 
-      keybind = global:ctrl+p=toggle_quick_terminal
-      keybind = super+s>super+s=text::w\n
-      keybind = all:alt+cmd+down=scroll_page_lines:25
-      keybind = all:alt+cmd+up=scroll_page_lines:-25
-      keybind = shift+enter=text:\x1b\r
-    '';
-  };
+        keybind = global:ctrl+p=toggle_quick_terminal
+        keybind = super+s>super+s=text::w\n
+        keybind = all:alt+cmd+down=scroll_page_lines:25
+        keybind = all:alt+cmd+up=scroll_page_lines:-25
+        keybind = shift+enter=text:\x1b\r
+      '';
+    };
 
-  xdg.configFile."presenterm/config.yaml" = {
-    text = ''
-      mermaid:
-        scale: 8
-    '';
-  };
+    xdg.configFile."presenterm/config.yaml" = {
+      text = ''
+        mermaid:
+          scale: 8
+      '';
+    };
 
-  # Set as default terminal
-  home.sessionVariables = {
-    TERMINAL = "ghostty";
+    # Set as default terminal
+    home.sessionVariables = {
+      TERMINAL = "ghostty";
+    };
   };
 }

@@ -22,5 +22,7 @@
   # Let Home Manager manage itself
   programs.home-manager.enable = true;
 
+  desktop.ghostty.fontSize = 16;
+
   xdg.configFile."aerospace".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/aerospace";
 }

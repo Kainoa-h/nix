@@ -24,5 +24,7 @@
 
   xdg.enable = true;
 
+  desktop.ghostty.fontSize = 18;
+
   desktop.wallpaper.path = "/home/kai/wallpapers/cats_lazin.gif";
 }
