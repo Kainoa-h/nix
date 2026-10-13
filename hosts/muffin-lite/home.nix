@@ -24,4 +24,6 @@
   programs.home-manager.enable = true;
 
   xdg.enable = true;
+
+  desktop.wallpaper.path = "/home/kai/wallpapers/_ (2).jpeg";
 }

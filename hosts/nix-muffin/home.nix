@@ -23,4 +23,6 @@
   programs.home-manager.enable = true;
 
   xdg.enable = true;
+
+  desktop.wallpaper.path = "/home/kai/wallpapers/cats_lazin.gif";
 }
