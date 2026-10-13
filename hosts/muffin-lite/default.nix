@@ -23,7 +23,6 @@
     ../../modules/system/desktop/fonts.nix
 
     # Services
-    ../../modules/system/services/ssh.nix
     ../../modules/system/services/storage.nix
     ../../modules/system/services/secrets.nix
 
