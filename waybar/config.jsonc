@@ -111,7 +111,7 @@
     "format-icons": ["", "", "", "", ""]
   },
   "network": {
-    "interface": "wlp1s0",
+    "on-click": "ghostty -e impala",
     "max-length": 24,
     "align": 0.5,
     "format-wifi": "{essid} ({signalStrength}%) ",
