@@ -82,7 +82,7 @@
     "format": " {}%"
   },
   "clock": {
-    "format": "{:L%d %B %A %H:%M}",
+    "format": "{:L%d %b %a %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false
   },
