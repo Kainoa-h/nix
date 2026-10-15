@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Web browsers
-  home.packages = with pkgs; [
-    chromium
-  ];
+  programs.chromium = {
+    enable = true;
+    commandLineArgs = [ "--ozone-platform=wayland" ];
+  };
 }
