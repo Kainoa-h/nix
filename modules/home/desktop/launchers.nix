@@ -4,7 +4,21 @@
   # Walker app launcher
   programs.walker = {
     enable = true;
-    runAsService = false;
+    runAsService = true;
+
+    config = {
+      providers = {
+        default = [
+          "desktopapplications"
+          "runner"
+          "calc"
+        ];
+
+        empty = [
+          "desktopapplications"
+        ];
+      };
+    };
   };
 
   # Elephant launcher package
