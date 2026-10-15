@@ -9,4 +9,6 @@ port = 1012
 script_path = "~/.config/sketchybar/plugins/layer_change.sh"
 
 # Log level: "info", "debug", or "trace"
-log_level = "info"
+log_level = "none"
+
+retry_seconds = 30
