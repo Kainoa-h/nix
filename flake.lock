@@ -73,6 +73,27 @@
         "type": "github"
       }
     },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "kanata-layer-observer",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1790858958,
+        "narHash": "sha256-am3DS8g9vyeQLKk9QQvmJoZLHGBUB1rtd6zVaGeq2Mc=",
+        "rev": "025bf5b6b0293c5ee3a3506a7e43ba64bc8bb1b7",
+        "revCount": 2805,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/nix-community/fenix/0.1.2805%2Brev-025bf5b6b0293c5ee3a3506a7e43ba64bc8bb1b7/01a0f7fd-201c-7141-9966-113030740054/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/nix-community/fenix/0.1"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -203,6 +224,27 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "kanata-layer-observer": {
+      "inputs": {
+        "fenix": "fenix",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792070231,
+        "narHash": "sha256-h/8cMY0CjRHLaSv/emSSWKO7uK+iYlui+LwIYocBbm8=",
+        "owner": "Kainoa-h",
+        "repo": "kanata-layer-observer",
+        "rev": "2730f065e666708cdb2a13cf0455878747b1d324",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kainoa-h",
+        "repo": "kanata-layer-observer",
         "type": "github"
       }
     },
@@ -431,6 +473,7 @@
         "elephant": "elephant",
         "ghostty": "ghostty",
         "home-manager": "home-manager_2",
+        "kanata-layer-observer": "kanata-layer-observer",
         "llm-agents": "llm-agents",
         "nix-darwin": "nix-darwin",
         "nixos-wsl": "nixos-wsl",
@@ -442,6 +485,23 @@
         "wrappers": "wrappers",
         "yazi-relative-motions": "yazi-relative-motions",
         "yazi-starship": "yazi-starship"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790532271,
+        "narHash": "sha256-j8y/AO3AMDF9p+11aIDhnA21JnNj5PjvcejTI43vI8Q=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "03fcb77246f2568adb0e9b2fa60d19c6cc1686f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "rust-overlay": {

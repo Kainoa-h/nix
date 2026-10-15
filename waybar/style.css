@@ -64,3 +64,17 @@ window#waybar {
     background-color: #002b36;
     font-weight: bold;
 }
+
+#custom-kanata {
+    padding: 0 10px;
+    margin: 7px 5px 0px 5px;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #444444;
+}
+
+#custom-kanata.symb { background-color: #5f3a1e; }
+#custom-kanata.symb-shift { background-color: #1e3a5f; }
+#custom-kanata.aux { background-color: #1e5f3a; }
+#custom-kanata.fnc { background-color: #5f1e1e; }
+#custom-kanata.normal { background-color: #fe4f4e; }

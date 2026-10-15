@@ -8,6 +8,7 @@
     "hyprland/workspaces"
   ],
   "modules-center": [
+    "custom/kanata",
     "clock"
   ],
   "modules-right": [
@@ -73,6 +74,15 @@
       "Z": "Z"
     },
     "persistent-workspaces": {}
+  },
+  "custom/kanata": {
+    "exec": "kanata-waybar-state",
+    "return-type": "json",
+    "format": " {text}",
+    "hide-empty-text": true,
+    "escape": true,
+    "tooltip": false,
+    "signal": 8
   },
   "cpu": {
     "interval": 5,

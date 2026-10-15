@@ -7,6 +7,7 @@
     ../../modules/home/profiles/full.nix
     # ../../modules/home/services/syncthing.nix
     ../../modules/home/services/kanata.nix
+    ../../modules/home/services/kanata-observer.nix
   ];
 
   # Home Manager basic settings
