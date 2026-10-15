@@ -38,6 +38,13 @@ nix run github:Kainoa-h/nix#nvim
 - Launcher: [Vorssaint](https://github.com/vorssaint/vorssaint-utils)
 - Wallpaper: [Catino](https://www.patreon.com/catinoworld/posts/catinoxp-124641128)
 
+
+### muffin-lite
+![](./images/muffin-lite.jpg)
+- Window Manager: [Hyprland](https://github.com/hyprwm/hyprland) + [Waybar](https://github.com/alexays/waybar)
+- Launcher: [Elephant](https://github.com/abenz1267/elephant) + [Walker](https://github.com/abenz1267/walker)
+- Wallpaper: idk
+
 ## Custom Keymap with [Kanata](https://github.com/jtroo/kanata)
 ![](./images/keymap-main.svg)
 

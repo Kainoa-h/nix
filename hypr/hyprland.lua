@@ -132,14 +132,14 @@ hl.env("HYPRCURSOR_SIZE", 24)
 
 hl.config({
     general = {
-        gaps_in = 5,
+        gaps_in = 3,
         gaps_out = {
-            top = 10,
-            right = 20,
-            bottom = 20,
-            left = 20
+            top = 7,
+            right = 7,
+            bottom = 7,
+            left = 7
         },
-        border_size = 2,
+        border_size = 1,
         -- https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
         -- Set to true enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,

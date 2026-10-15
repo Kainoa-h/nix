@@ -73,14 +73,12 @@
 
           set -g status-right-length 100
           # set -g status-right "#{E:@catppuccin_status_application}"
-          set -g status-right "#{E:@catppuccin_status_directory}"
-          set -ag status-right "#{E:@catppuccin_status_uptime}"
+          set -g status-right "#{E:@catppuccin_status_uptime}"
 
           set -g @catppuccin_status_connect_separator "no"
           set -g @catppuccin_status_fill "icon"
           set -g @catppuccin_status_right_separator " "
 
-          set -g @catppuccin_directory_icon " "
           set -g @catppuccin_session_icon " "
 
           set -wg automatic-rename on

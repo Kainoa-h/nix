@@ -28,5 +28,5 @@
 
   desktop.ghostty.fontSize = 14;
 
-  desktop.wallpaper.path = "/home/kai/wallpapers/_ (2).jpeg";
+  desktop.wallpaper.path = "/home/kai/wallpapers/_.jpeg";
 }
