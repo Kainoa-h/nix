@@ -30,6 +30,7 @@
   lmkey (t! charmod (one-shot 1000 (layer-while-held fnc)) (layer-while-held aux))
   rmkey (t! charmod (one-shot 1000 (layer-while-held symb^)) (layer-while-held symb))
   mspc  (t! charmod_no_repeat_tap spc lsft)
+  mldm   (tap-dance 200 (mrgt mmid))
 
   ;; aux layer
   aspc  (t! charmod ret lsft)
@@ -61,10 +62,10 @@
 
 (deflayer main
   XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
-  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
+  XX    mlft  mrgt  mmid  XX    XX    XX    XX    XX    XX    XX    XX    XX    XX
   q     @chw  @che  r     t     XX    XX    y     u     i     o     p     XX    XX
-  a     s     d     f     g     XX    XX    h     @chj  @chk  @chl  @ch;  XX
-  z     @xctl @calt @vmet b     XX    XX    n     @mrmet @cralt @drctl /
+  a     s     d     f     g     mbck  mfwd  h     @chj  @chk  @chl  @ch;  XX
+  z     @xctl @calt @vmet b     mlft  @mldm n     @mrmet @cralt @drctl /
   _     _     @lmkey                  @mspc             @rmkey _
 )
 
