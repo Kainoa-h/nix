@@ -58,6 +58,12 @@
 
   users.users.kai.extraGroups = [ "i2c" ];
 
+  security.pam.services.hyprlock = {
+    unixAuth = true;
+    fprintAuth = false;
+    u2fAuth = false;
+  };
+
   security.sudo.extraRules = [
     {
       users = [ "kai" ];

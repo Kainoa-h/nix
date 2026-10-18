@@ -5,6 +5,7 @@
   imports = [
     inputs.walker.homeManagerModules.default
     ../../modules/home/profiles/full.nix
+    ../../modules/home/desktop/hyprlock.nix
     # ../../modules/home/services/syncthing.nix
     ../../modules/home/services/kanata.nix
     ../../modules/home/services/kanata-observer.nix
@@ -29,4 +30,6 @@
   desktop.ghostty.fontSize = 14;
 
   desktop.wallpaper.path = "/home/kai/wallpapers/_.jpeg";
+
+  desktop.lockscreen.backgroundPath = "/home/kai/wallpapers/_ (4).jpeg";
 }

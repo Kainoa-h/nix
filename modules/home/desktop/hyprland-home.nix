@@ -8,8 +8,8 @@
   };
 
   config = {
-    # Symlink to external Hyprland configuration
-    xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/hypr";
+    # Keep live editing while allowing generated configs alongside Hyprland's config.
+    xdg.configFile."hypr/hyprland.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/kai/nixos-config/hypr/hyprland.lua";
 
     home.file.".local/bin/start-wallpaper" = lib.mkIf (config.desktop.wallpaper.path != null) {
       executable = true;
