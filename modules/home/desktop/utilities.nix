@@ -7,9 +7,6 @@
     grim
     slurp
 
-    # File system utilities
-    udiskie
-
     # Office and productivity
     # libreoffice-fresh
     hunspell

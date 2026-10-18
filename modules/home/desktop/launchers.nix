@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ ... }:
 
 {
   # Walker app launcher
@@ -21,8 +21,6 @@
     };
   };
 
-  # Elephant launcher package
-  home.packages = [
-    inputs.elephant.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+  # Walker enables Elephant; its module owns the package and backend service.
+  programs.elephant.installService = true;
 }

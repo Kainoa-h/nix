@@ -20,7 +20,6 @@
 
   # System packages for Hyprland environment
   environment.systemPackages = with pkgs; [
-    waybar
     dunst
     libnotify
     gpu-screen-recorder-gtk # GUI app for screen recorder

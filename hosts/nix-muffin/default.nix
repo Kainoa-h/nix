@@ -50,7 +50,6 @@
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     ddcui
     ddcutil
-    brightnessctl
   ];
 
   # Home Manager configuration

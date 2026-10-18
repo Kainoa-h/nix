@@ -3,6 +3,7 @@
 {
   # Import full profile (desktop user with all features)
   imports = [
+    ./hyprland.nix
     inputs.walker.homeManagerModules.default
     ../../modules/home/profiles/full.nix
     ../../modules/home/desktop/hyprlock.nix
@@ -27,7 +28,7 @@
 
   xdg.enable = true;
 
-  desktop.ghostty.fontSize = 14;
+  desktop.ghostty.fontSize = 18;
 
   desktop.wallpaper.path = "/home/kai/wallpapers/_.jpeg";
 

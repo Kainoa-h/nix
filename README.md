@@ -16,6 +16,19 @@ My Nix flake, using Home Manager to manage a NixOS desktop, macOS laptop, and Ni
 - `packages/neovim/` contains the standalone Neovim package.
 - Other folders are respective app specific configurations
 
+## Hyprland configuration
+
+Managed via Home Manager
+
+- `modules/home/desktop/hyprland/` contains shared appearance, input settings,
+  bindings, and session services.
+  - `bindings-lib.nix` provides helpers for Lua
+    dispatchers and bindings;
+- `hosts/<host>/hyprland.nix` contains that machine's monitor rules and brightness
+  keys.
+- `hosts/<host>/home.nix` selects the wallpaper using `desktop.wallpaper.path`.
+  - Can be set to `null` to disable the managed wallpaper daemon and service.
+
 ## Standalone Neovim Derivation
 
 The Neovim configuration is packaged independently with [nix-wrapper-modules](https://github.com/BirdeeHub/nix-wrapper-modules) and can be run without using the rest of this config:
