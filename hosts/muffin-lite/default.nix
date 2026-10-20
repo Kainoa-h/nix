@@ -90,6 +90,12 @@
       defaultNetwork.settings.dns_enabled = true;
   };
 
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ];
+  };
+
+
   # some stuff so Mason can download stuff
   programs.nix-ld.enable = true;
 
