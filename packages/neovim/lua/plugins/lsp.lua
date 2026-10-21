@@ -1,3 +1,57 @@
+local manual_servers = {
+	angularls = { key = "a", label = "Angular", cats = { "angular" } },
+	vue_ls = { key = "v", label = "Vue", cats = { "vue" } },
+	emmet_ls = { key = "e", label = "Emmet", cats = { "html", "css", "react" } },
+}
+local configured = {}
+
+local function toggle_server(name)
+	local server = manual_servers[name]
+	if nixInfo.isNix then
+		local available = false
+		for _, cat in ipairs(server.cats) do
+			available = available or nixInfo(false, "settings", "cats", cat)
+		end
+		if not available then
+			vim.notify(server.label .. " LSP is unavailable in this Nix configuration", vim.log.levels.WARN)
+			return
+		end
+	end
+
+	-- Load the spec even when its normal filetype has not been opened yet.
+	nixInfo.lze.trigger_load(name)
+	if not configured[name] then
+		vim.notify(server.label .. " LSP configuration could not be loaded", vim.log.levels.WARN)
+		return
+	end
+	local enabled = not vim.lsp.is_enabled(name)
+	vim.lsp.enable(name, enabled)
+	vim.notify(server.label .. " LSP " .. (enabled and "enabled" or "disabled") .. " for this session")
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("FrameworkLspToggles", { clear = true }),
+	pattern = {
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"htmlangular",
+		"css",
+		"scss",
+		"less",
+		"vue",
+	},
+	callback = function(args)
+		for name, server in pairs(manual_servers) do
+			vim.keymap.set("n", "<leader>cl" .. server.key, function()
+				toggle_server(name)
+			end, { buffer = args.buf, desc = "Toggle " .. server.label .. " LSP (session)" })
+		end
+	end,
+})
+
 return {
 	{
 		"nvim-lspconfig",
@@ -7,7 +61,10 @@ return {
 		-- when their filetype trigger loads them
 		lsp = function(plugin)
 			vim.lsp.config(plugin.name, plugin.lsp or {})
-			vim.lsp.enable(plugin.name)
+			configured[plugin.name] = true
+			if not manual_servers[plugin.name] then
+				vim.lsp.enable(plugin.name)
+			end
 		end,
 		-- set up our on_attach function once before the spec loads
 		before = function(_)
@@ -17,11 +74,14 @@ return {
 				group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					if not client then return end
+					if not client then
+						return
+					end
 
 					local bufnr = args.buf
 
-					if client:supports_method("textDocument/documentHighlight")
+					if
+						client:supports_method("textDocument/documentHighlight")
 						and not vim.b[bufnr].lsp_document_highlight_enabled
 					then
 						vim.b[bufnr].lsp_document_highlight_enabled = true
@@ -52,10 +112,18 @@ return {
 					nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
 					nmap("<leader>cgd", vim.lsp.buf.definition, "Goto Definition")
 					nmap("<leader>cd", vim.diagnostic.open_float, "Diagnostic at Cursor")
-					nmap("<leader>cgr", function() Snacks.picker.lsp_references() end, "Goto References")
-					nmap("<leader>cgI", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
-					nmap("<leader>cs", function() Snacks.picker.lsp_symbols() end, "Document Symbols")
-					nmap("<leader>cw", function() Snacks.picker.lsp_workspace_symbols() end, "Workspace Symbols")
+					nmap("<leader>cgr", function()
+						Snacks.picker.lsp_references()
+					end, "Goto References")
+					nmap("<leader>cgI", function()
+						Snacks.picker.lsp_implementations()
+					end, "Goto Implementation")
+					nmap("<leader>cs", function()
+						Snacks.picker.lsp_symbols()
+					end, "Document Symbols")
+					nmap("<leader>cw", function()
+						Snacks.picker.lsp_workspace_symbols()
+					end, "Workspace Symbols")
 
 					-- See `:help K` for why this keymap
 					nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -68,7 +136,6 @@ return {
 					vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
 						vim.lsp.buf.format()
 					end, { desc = "Format current buffer with LSP" })
-
 				end,
 			})
 		end,

@@ -116,6 +116,7 @@ if not vim.g.started_by_firenvim then
 					{ "<leader><leader>", group = "buffer commands" },
 					{ "<leader><leader>_", hidden = true },
 					{ "<leader>c", group = "[c]ode" },
+					{ "<leader>cl", group = "Framework LSPs" },
 					{ "<leader>c_", hidden = true },
 					{ "<leader>d", group = "[d]ocument" },
 					{ "<leader>d_", hidden = true },
