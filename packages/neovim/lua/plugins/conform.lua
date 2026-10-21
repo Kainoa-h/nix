@@ -15,7 +15,8 @@ return {
 			conform.setup({
 				formatters_by_ft = {
 					lua = nixInfo(nil, "settings", "cats", "lua") and { "stylua" } or nil,
-					rust = nixInfo(nil, "settings", "cats", "rust") and { "rustfmt", "taplo" } or nil,
+					rust = nixInfo(nil, "settings", "cats", "rust") and { "rustfmt" } or nil,
+					toml = nixInfo(nil, "settings", "cats", "rust") and { "taplo" } or nil,
 					typescript = nixInfo(nil, "settings", "cats", "typescript") and { "prettierd" } or nil,
 					javascript = nixInfo(nil, "settings", "cats", "javascript") and { "prettierd" } or nil,
 					typescriptreact = nixInfo(nil, "settings", "cats", "typescript") and { "prettierd" } or nil,
@@ -38,7 +39,7 @@ return {
 				conform.format({
 					lsp_fallback = true,
 					async = false,
-					timeout_ms = 1000,
+					timeout_ms = 5000,
 				})
 			end, { desc = "Format File" })
 		end,
