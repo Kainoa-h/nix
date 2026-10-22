@@ -1,5 +1,25 @@
 { config, lib, pkgs, ... }:
 
+let
+  powerStatus = pkgs.writeShellScript "hyprlock-power-status" ''
+    for supply in /sys/class/power_supply/*; do
+      [[ -r "$supply/type" && -r "$supply/capacity" ]] || continue
+      [[ $(< "$supply/type") == Battery ]] || continue
+
+      capacity=$(< "$supply/capacity")
+      status=$(< "$supply/status")
+      case "$status" in
+        Charging) printf ' · %s%%\n' "$capacity" ;;
+        Full) printf ' · %s%%\n' "$capacity" ;;
+        'Not charging') printf ' · %s%%\n' "$capacity" ;;
+        *) printf '  · %s%%\n' "$capacity" ;;
+      esac
+      exit 0
+    done
+
+    printf 'AC power\n'
+  '';
+in
 {
   options.desktop.lockscreen.backgroundPath = lib.mkOption {
     type = lib.types.str;
@@ -39,6 +59,15 @@
         }];
 
         label = [
+          {
+            monitor = "";
+            text = "cmd[update:5000] ${powerStatus}";
+            font_size = 14;
+            color = "rgb(24, 24, 24)";
+            position = "-20, 20";
+            halign = "right";
+            valign = "bottom";
+          }
           {
             monitor = "";
             text = "$TIME";
