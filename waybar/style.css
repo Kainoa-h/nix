@@ -65,12 +65,18 @@ window#waybar {
     font-weight: bold;
 }
 
-#custom-kanata {
+#custom-kanata,
+#custom-kanata-spacer {
     padding: 3 10px;
     margin: 7px 5px 0px 5px;
     border-radius: 6px;
     color: #ffffff;
     background-color: #444444;
+}
+
+/* Mirror Kanata's width on the right to keep the clock centered. */
+#custom-kanata-spacer {
+    opacity: 0;
 }
 
 #custom-kanata.symb { background-color: #5f3a1e; }
