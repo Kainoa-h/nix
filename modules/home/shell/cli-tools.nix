@@ -14,6 +14,8 @@
     curl
     jq
     rsync
+    dysk
+    dust
   ] ++ lib.optionals pkgs.stdenv.isLinux [
     # linux/wayland-specific tools
     wl-clipboard
