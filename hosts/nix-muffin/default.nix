@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -106,9 +111,15 @@
   };
 
   virtualisation.podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
+
+  security.pam.services.hyprlock = {
+    unixAuth = true;
+    fprintAuth = false;
+    u2fAuth = false;
   };
 
   # some stuff so Mason can download stuff

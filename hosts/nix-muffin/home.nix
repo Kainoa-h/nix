@@ -7,6 +7,7 @@
     inputs.walker.homeManagerModules.default
     ../../modules/home/profiles/full.nix
     ../../modules/home/services/syncthing.nix
+    ../../modules/home/desktop/hyprlock.nix
   ];
 
   # Home Manager basic settings
@@ -28,4 +29,5 @@
   desktop.ghostty.fontSize = 18;
 
   desktop.wallpaper.path = "/home/kai/wallpapers/cats_lazin.gif";
+  desktop.lockscreen.backgroundPath = "/home/kai/wallpapers/pix-sky.gif";
 }
