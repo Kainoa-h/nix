@@ -1,5 +1,7 @@
 (defcfg
   process-unmapped-keys yes
+  linux-dev-names-exclude ( "Oven Mittens Keyboard" )
+  linux-continue-if-no-devs-found yes
 )
 
 (deftemplate charmod (char mod)
