@@ -127,6 +127,42 @@ return {
 			vim.keymap.set("n", "<leader>gg", function()
 				Snacks.lazygit.open()
 			end, { desc = "Snacks LazyGit" })
+			vim.keymap.set("n", "<leader>gh", function()
+				Snacks.picker.git_log_file({
+					layout = {
+						cycle = false,
+						layout = {
+							box = "vertical",
+							width = 0.85,
+							height = 0.85,
+							border = "rounded",
+							{ win = "input", height = 1, border = "bottom" },
+							{ win = "list", height = 3, border = "none" },
+							{ win = "preview", border = "top" },
+						},
+					},
+					previewers = {
+						diff = { style = "syntax" },
+					},
+					confirm = function(picker, item)
+						if not item then
+							return
+						end
+						picker:close()
+						require("gitsigns").show(item.commit, function(err)
+							if err then
+								vim.notify(err, vim.log.levels.ERROR)
+								return
+							end
+							local buf = vim.api.nvim_get_current_buf()
+							if vim.api.nvim_buf_get_name(buf):match("^gitsigns://") then
+								vim.bo[buf].bufhidden = "hide"
+								vim.bo[buf].buflisted = true
+							end
+						end)
+					end,
+				})
+			end, { desc = "Bufffer Git history" })
 			vim.keymap.set("n", "<leader>sf", function()
 				Snacks.picker.smart()
 			end, { desc = "Smart Find Files" })
@@ -197,12 +233,7 @@ return {
 				)
 				:map("<leader>uc")
 
-			Snacks.toggle
-				.option(
-					"wrap",
-					{name = "Word Wrap" }
-				)
-				:map("<leader>uw")
+			Snacks.toggle.option("wrap", { name = "Word Wrap" }):map("<leader>uw")
 		end,
 	},
 }

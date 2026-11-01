@@ -79,6 +79,10 @@ return {
 					end
 
 					local bufnr = args.buf
+					-- don't attach lsp on preview gitsigns previews
+					if vim.api.nvim_buf_get_name(bufnr):match("^gitsigns://") then
+						return
+					end
 
 					if
 						client:supports_method("textDocument/documentHighlight")
