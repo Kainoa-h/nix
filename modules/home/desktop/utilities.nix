@@ -17,5 +17,8 @@
 
     # PulseAudio controls
     pamix
+    
+    # stuff
+    usbutils
   ];
 }
