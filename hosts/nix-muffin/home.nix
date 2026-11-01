@@ -5,7 +5,7 @@
   imports = [
     ./hyprland.nix
     inputs.walker.homeManagerModules.default
-    ../../modules/home/profiles/laptop-user.nix
+    ../../modules/home/profiles/full.nix
     ../../modules/home/services/syncthing.nix
   ];
 
