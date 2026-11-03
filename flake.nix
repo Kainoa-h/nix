@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    waybar = {
+      url = "git+https://github.com/Alexays/Waybar?ref=master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     kanata-layer-observer = {
       url = "github:Kainoa-h/kanata-layer-observer";
       inputs.nixpkgs.follows = "nixpkgs";

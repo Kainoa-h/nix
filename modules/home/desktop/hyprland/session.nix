@@ -25,6 +25,10 @@ in
 
   programs.waybar = {
     enable = true;
+    package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      # Upstream's flake still vendors the old Cava subproject; use nixpkgs' library.
+      buildInputs = old.buildInputs ++ [ pkgs.libcava ];
+    });
     systemd = {
       enable = true;
       targets = [ sessionTarget ];

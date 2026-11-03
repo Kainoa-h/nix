@@ -22,7 +22,6 @@
     "tray"
   ],
   "hyprland/workspaces": {
-    "on-click": "activate",
     "format": "{icon} {windows}",
     "window-rewrite": {
       "class<chromium-browser>": "",
