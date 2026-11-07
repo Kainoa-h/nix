@@ -12,7 +12,7 @@
   users.users.kai = {
     isNormalUser = true;
     description = "kai";
-    extraGroups = [ "networkmanager" "wheel" "dailout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
